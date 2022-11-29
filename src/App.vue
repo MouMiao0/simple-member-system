@@ -1,7 +1,15 @@
 <script setup lang="ts">
 // This starter template is using Vue 3 <script setup> SFCs
+
+import { onMounted } from 'vue';
+import { useRouter } from 'vue-router';
+
+const router  = useRouter();
+
 // Check out https://vuejs.org/api/sfc-script-setup.html#script-setup
-import HelloWorld from './components/HelloWorld.vue'
+onMounted(()=>{
+    router.push({name: 'hello_world'})
+})
 </script>
 
 <template>
@@ -10,7 +18,7 @@ import HelloWorld from './components/HelloWorld.vue'
     <img class="logo electron" src="./assets/electron.svg" >
     <img class="logo vue" src="./assets/vue.svg" >
   </div>
-  <HelloWorld msg="Hello Vue 3 + TypeScript + Vite" />
+  <router-view></router-view>
   <div class="static-public">
     Place static files into the <code>/public</code> folder
     <img style="width:77px;" :src="'./node.png'" >
