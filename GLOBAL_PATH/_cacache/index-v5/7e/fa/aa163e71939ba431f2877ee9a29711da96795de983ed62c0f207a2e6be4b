@@ -1,0 +1,2 @@
+
+94d69be86b8ccd81a0b2c199557e07adf43f48dd	{"key":"make-fetch-happen:request-cache:https://registry.npm.taobao.org/iconv-corefoundation","integrity":null,"time":1669738111105,"size":"262","metadata":{"time":1669738111105,"url":"https://registry.npm.taobao.org/iconv-corefoundation","reqHeaders":{"accept":"application/vnd.npm.install-v1+json; q=1.0, application/json; q=0.8, */*"},"resHeaders":{"content-type":"text/html","date":"Tue, 29 Nov 2022 16:08:30 GMT","location":"https://registry.npmmirror.com/iconv-corefoundation"},"options":{"compress":true},"status":301}}

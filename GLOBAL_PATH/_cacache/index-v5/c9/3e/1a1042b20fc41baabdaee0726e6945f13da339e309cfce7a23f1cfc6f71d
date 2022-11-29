@@ -1,0 +1,2 @@
+
+7868817cf8d0bbff98edcb570dc4ffbbc7149d06	{"key":"make-fetch-happen:request-cache:https://registry.npm.taobao.org/decompress-response","integrity":null,"time":1669738109647,"size":"262","metadata":{"time":1669738109647,"url":"https://registry.npm.taobao.org/decompress-response","reqHeaders":{"accept":"application/vnd.npm.install-v1+json; q=1.0, application/json; q=0.8, */*"},"resHeaders":{"content-type":"text/html","date":"Tue, 29 Nov 2022 16:08:29 GMT","location":"https://registry.npmmirror.com/decompress-response"},"options":{"compress":true},"status":301}}

@@ -1,0 +1,2 @@
+
+93cd00ebd7f61e0ee765b4735a8e48e8414529fe	{"key":"make-fetch-happen:request-cache:https://registry.npm.taobao.org/duplexer3","integrity":null,"time":1669738109646,"size":"262","metadata":{"time":1669738109646,"url":"https://registry.npm.taobao.org/duplexer3","reqHeaders":{"accept":"application/vnd.npm.install-v1+json; q=1.0, application/json; q=0.8, */*"},"resHeaders":{"content-type":"text/html","date":"Tue, 29 Nov 2022 16:08:29 GMT","location":"https://registry.npmmirror.com/duplexer3"},"options":{"compress":true},"status":301}}

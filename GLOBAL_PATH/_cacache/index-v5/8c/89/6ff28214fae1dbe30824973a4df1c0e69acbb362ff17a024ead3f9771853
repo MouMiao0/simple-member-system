@@ -1,0 +1,2 @@
+
+aa99e052406703ff01e3940e8679be1ae7b22d62	{"key":"make-fetch-happen:request-cache:https://registry.npm.taobao.org/shebang-regex","integrity":null,"time":1669738110978,"size":"262","metadata":{"time":1669738110978,"url":"https://registry.npm.taobao.org/shebang-regex","reqHeaders":{"accept":"application/vnd.npm.install-v1+json; q=1.0, application/json; q=0.8, */*"},"resHeaders":{"content-type":"text/html","date":"Tue, 29 Nov 2022 16:08:30 GMT","location":"https://registry.npmmirror.com/shebang-regex"},"options":{"compress":true},"status":301}}

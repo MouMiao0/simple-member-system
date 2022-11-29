@@ -1,0 +1,2 @@
+
+946953c0c2706af06a4f7ddb1fbc3e2304b7c767	{"key":"make-fetch-happen:request-cache:https://registry.npm.taobao.org/has-symbols","integrity":null,"time":1669738113484,"size":"262","metadata":{"time":1669738113484,"url":"https://registry.npm.taobao.org/has-symbols","reqHeaders":{"accept":"application/vnd.npm.install-v1+json; q=1.0, application/json; q=0.8, */*"},"resHeaders":{"content-type":"text/html","date":"Tue, 29 Nov 2022 16:08:32 GMT","location":"https://registry.npmmirror.com/has-symbols"},"options":{"compress":true},"status":301}}

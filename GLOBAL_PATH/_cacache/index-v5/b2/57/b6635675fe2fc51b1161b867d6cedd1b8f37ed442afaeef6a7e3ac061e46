@@ -1,0 +1,2 @@
+
+3f81980ea4ecb2c9633cea260c177282aa63880b	{"key":"make-fetch-happen:request-cache:https://registry.npm.taobao.org/hosted-git-info","integrity":null,"time":1669738109887,"size":"262","metadata":{"time":1669738109887,"url":"https://registry.npm.taobao.org/hosted-git-info","reqHeaders":{"accept":"application/vnd.npm.install-v1+json; q=1.0, application/json; q=0.8, */*"},"resHeaders":{"content-type":"text/html","date":"Tue, 29 Nov 2022 16:08:29 GMT","location":"https://registry.npmmirror.com/hosted-git-info"},"options":{"compress":true},"status":301}}

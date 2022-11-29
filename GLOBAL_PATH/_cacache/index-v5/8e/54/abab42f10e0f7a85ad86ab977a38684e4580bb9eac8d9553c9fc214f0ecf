@@ -1,0 +1,2 @@
+
+011e433d5d722574ba585139393b364c283d8755	{"key":"make-fetch-happen:request-cache:https://registry.npm.taobao.org/es6-error","integrity":null,"time":1669738109626,"size":"262","metadata":{"time":1669738109626,"url":"https://registry.npm.taobao.org/es6-error","reqHeaders":{"accept":"application/vnd.npm.install-v1+json; q=1.0, application/json; q=0.8, */*"},"resHeaders":{"content-type":"text/html","date":"Tue, 29 Nov 2022 16:08:28 GMT","location":"https://registry.npmmirror.com/es6-error"},"options":{"compress":true},"status":301}}

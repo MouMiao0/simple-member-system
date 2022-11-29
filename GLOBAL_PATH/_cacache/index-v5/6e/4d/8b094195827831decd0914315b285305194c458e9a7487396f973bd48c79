@@ -1,0 +1,2 @@
+
+3a1ff803bd998973810083495f247ad60139e4a4	{"key":"make-fetch-happen:request-cache:https://registry.npm.taobao.org/http-cache-semantics","integrity":null,"time":1669738111955,"size":"262","metadata":{"time":1669738111955,"url":"https://registry.npm.taobao.org/http-cache-semantics","reqHeaders":{"accept":"application/vnd.npm.install-v1+json; q=1.0, application/json; q=0.8, */*"},"resHeaders":{"content-type":"text/html","date":"Tue, 29 Nov 2022 16:08:31 GMT","location":"https://registry.npmmirror.com/http-cache-semantics"},"options":{"compress":true},"status":301}}

@@ -1,0 +1,2 @@
+
+09c8327c304e042ce19fd59284c8d235a26054e4	{"key":"make-fetch-happen:request-cache:https://registry.npm.taobao.org/dmg-license","integrity":null,"time":1669738109923,"size":"262","metadata":{"time":1669738109923,"url":"https://registry.npm.taobao.org/dmg-license","reqHeaders":{"accept":"application/vnd.npm.install-v1+json; q=1.0, application/json; q=0.8, */*"},"resHeaders":{"content-type":"text/html","date":"Tue, 29 Nov 2022 16:08:29 GMT","location":"https://registry.npmmirror.com/dmg-license"},"options":{"compress":true},"status":301}}

@@ -1,0 +1,2 @@
+
+d80ab007763d4de9771a49f2d7032936a1d9cb1d	{"key":"make-fetch-happen:request-cache:https://registry.npm.taobao.org/brace-expansion","integrity":null,"time":1669738110182,"size":"262","metadata":{"time":1669738110182,"url":"https://registry.npm.taobao.org/brace-expansion","reqHeaders":{"accept":"application/vnd.npm.install-v1+json; q=1.0, application/json; q=0.8, */*"},"resHeaders":{"content-type":"text/html","date":"Tue, 29 Nov 2022 16:08:29 GMT","location":"https://registry.npmmirror.com/brace-expansion"},"options":{"compress":true},"status":301}}

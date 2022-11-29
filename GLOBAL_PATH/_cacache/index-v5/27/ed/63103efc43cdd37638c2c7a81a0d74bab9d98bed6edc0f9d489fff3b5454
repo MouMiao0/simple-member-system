@@ -1,0 +1,2 @@
+
+4f18ad40c64e3d79af2646364051e747ef9d4c42	{"key":"make-fetch-happen:request-cache:https://registry.npm.taobao.org/fs-minipass","integrity":null,"time":1669738110182,"size":"262","metadata":{"time":1669738110182,"url":"https://registry.npm.taobao.org/fs-minipass","reqHeaders":{"accept":"application/vnd.npm.install-v1+json; q=1.0, application/json; q=0.8, */*"},"resHeaders":{"content-type":"text/html","date":"Tue, 29 Nov 2022 16:08:29 GMT","location":"https://registry.npmmirror.com/fs-minipass"},"options":{"compress":true},"status":301}}

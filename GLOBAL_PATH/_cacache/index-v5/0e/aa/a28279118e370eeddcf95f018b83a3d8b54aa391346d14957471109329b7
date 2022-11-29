@@ -1,0 +1,2 @@
+
+05fa77de93404ce4c99fe5f42cfd68ac1a10251b	{"key":"make-fetch-happen:request-cache:https://registry.npm.taobao.org/async-exit-hook","integrity":null,"time":1669738109883,"size":"262","metadata":{"time":1669738109883,"url":"https://registry.npm.taobao.org/async-exit-hook","reqHeaders":{"accept":"application/vnd.npm.install-v1+json; q=1.0, application/json; q=0.8, */*"},"resHeaders":{"content-type":"text/html","date":"Tue, 29 Nov 2022 16:08:29 GMT","location":"https://registry.npmmirror.com/async-exit-hook"},"options":{"compress":true},"status":301}}

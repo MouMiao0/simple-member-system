@@ -1,0 +1,2 @@
+
+98e861739c0ba6bef16fdf78a41ac8387582c210	{"key":"make-fetch-happen:request-cache:https://registry.npm.taobao.org/asar","integrity":null,"time":1669738110162,"size":"262","metadata":{"time":1669738110162,"url":"https://registry.npm.taobao.org/asar","reqHeaders":{"accept":"application/vnd.npm.install-v1+json; q=1.0, application/json; q=0.8, */*"},"resHeaders":{"content-type":"text/html","date":"Tue, 29 Nov 2022 16:08:29 GMT","location":"https://registry.npmmirror.com/asar"},"options":{"compress":true},"status":301}}

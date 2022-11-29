@@ -1,0 +1,2 @@
+
+5ff9b3ec2b8d0b6ff4794b08386a4ca390d53e97	{"key":"make-fetch-happen:request-cache:https://registry.npm.taobao.org/get-caller-file","integrity":null,"time":1669738109929,"size":"262","metadata":{"time":1669738109929,"url":"https://registry.npm.taobao.org/get-caller-file","reqHeaders":{"accept":"application/vnd.npm.install-v1+json; q=1.0, application/json; q=0.8, */*"},"resHeaders":{"content-type":"text/html","date":"Tue, 29 Nov 2022 16:08:29 GMT","location":"https://registry.npmmirror.com/get-caller-file"},"options":{"compress":true},"status":301}}

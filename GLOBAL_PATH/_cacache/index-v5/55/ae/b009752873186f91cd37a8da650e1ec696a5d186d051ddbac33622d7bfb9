@@ -1,0 +1,2 @@
+
+b2bcb2ed7109649ae85db2f03f76c7b750a19e68	{"key":"make-fetch-happen:request-cache:https://registry.npm.taobao.org/fd-slicer","integrity":null,"time":1669738111547,"size":"262","metadata":{"time":1669738111547,"url":"https://registry.npm.taobao.org/fd-slicer","reqHeaders":{"accept":"application/vnd.npm.install-v1+json; q=1.0, application/json; q=0.8, */*"},"resHeaders":{"content-type":"text/html","date":"Tue, 29 Nov 2022 16:08:30 GMT","location":"https://registry.npmmirror.com/fd-slicer"},"options":{"compress":true},"status":301}}

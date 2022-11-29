@@ -1,0 +1,2 @@
+
+0bff011575a8222d8e20b8fedfb1f732e5cf5e8a	{"key":"make-fetch-happen:request-cache:https://registry.npm.taobao.org/truncate-utf8-bytes","integrity":null,"time":1669738110179,"size":"262","metadata":{"time":1669738110179,"url":"https://registry.npm.taobao.org/truncate-utf8-bytes","reqHeaders":{"accept":"application/vnd.npm.install-v1+json; q=1.0, application/json; q=0.8, */*"},"resHeaders":{"content-type":"text/html","date":"Tue, 29 Nov 2022 16:08:29 GMT","location":"https://registry.npmmirror.com/truncate-utf8-bytes"},"options":{"compress":true},"status":301}}

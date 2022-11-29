@@ -1,0 +1,2 @@
+
+edec59ac55d296df3e7ccacdbdd427644b8371e9	{"key":"make-fetch-happen:request-cache:https://registry.npm.taobao.org/@sindresorhus%2fis","integrity":null,"time":1669738109624,"size":"262","metadata":{"time":1669738109624,"url":"https://registry.npm.taobao.org/@sindresorhus%2fis","reqHeaders":{"accept":"application/vnd.npm.install-v1+json; q=1.0, application/json; q=0.8, */*"},"resHeaders":{"content-type":"text/html","date":"Tue, 29 Nov 2022 16:08:28 GMT","location":"https://registry.npmmirror.com/@sindresorhus%2fis"},"options":{"compress":true},"status":301}}

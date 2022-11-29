@@ -1,0 +1,2 @@
+
+400eee3c5a32d250240067ce4678d84422e63b1f	{"key":"make-fetch-happen:request-cache:https://registry.npm.taobao.org/dir-compare","integrity":null,"time":1669738110162,"size":"262","metadata":{"time":1669738110162,"url":"https://registry.npm.taobao.org/dir-compare","reqHeaders":{"accept":"application/vnd.npm.install-v1+json; q=1.0, application/json; q=0.8, */*"},"resHeaders":{"content-type":"text/html","date":"Tue, 29 Nov 2022 16:08:29 GMT","location":"https://registry.npmmirror.com/dir-compare"},"options":{"compress":true},"status":301}}

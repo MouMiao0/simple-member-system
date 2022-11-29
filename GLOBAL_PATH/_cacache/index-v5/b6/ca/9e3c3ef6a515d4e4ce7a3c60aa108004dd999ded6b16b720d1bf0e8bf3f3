@@ -1,0 +1,2 @@
+
+74e0669bd6bb60c7ee7ab7f96dde872bcf62edf0	{"key":"make-fetch-happen:request-cache:https://registry.npm.taobao.org/sourcemap-codec","integrity":null,"time":1669738114084,"size":"262","metadata":{"time":1669738114084,"url":"https://registry.npm.taobao.org/sourcemap-codec","reqHeaders":{"accept":"application/vnd.npm.install-v1+json; q=1.0, application/json; q=0.8, */*"},"resHeaders":{"content-type":"text/html","date":"Tue, 29 Nov 2022 16:08:33 GMT","location":"https://registry.npmmirror.com/sourcemap-codec"},"options":{"compress":true},"status":301}}

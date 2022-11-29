@@ -1,0 +1,2 @@
+
+4b03fdab467a8136a5e6ba10a20a27f225addc2f	{"key":"make-fetch-happen:request-cache:https://registry.npm.taobao.org/mkdirp","integrity":null,"time":1669738110184,"size":"262","metadata":{"time":1669738110184,"url":"https://registry.npm.taobao.org/mkdirp","reqHeaders":{"accept":"application/vnd.npm.install-v1+json; q=1.0, application/json; q=0.8, */*"},"resHeaders":{"content-type":"text/html","date":"Tue, 29 Nov 2022 16:08:29 GMT","location":"https://registry.npmmirror.com/mkdirp"},"options":{"compress":true},"status":301}}

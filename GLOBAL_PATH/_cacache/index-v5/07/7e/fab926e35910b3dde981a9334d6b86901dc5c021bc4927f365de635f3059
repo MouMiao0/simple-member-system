@@ -1,0 +1,2 @@
+
+5dfc7f7428a66066d48f694395db37d53f67fc4a	{"key":"make-fetch-happen:request-cache:https://registry.npm.taobao.org/serialize-error","integrity":null,"time":1669738109628,"size":"262","metadata":{"time":1669738109628,"url":"https://registry.npm.taobao.org/serialize-error","reqHeaders":{"accept":"application/vnd.npm.install-v1+json; q=1.0, application/json; q=0.8, */*"},"resHeaders":{"content-type":"text/html","date":"Tue, 29 Nov 2022 16:08:28 GMT","location":"https://registry.npmmirror.com/serialize-error"},"options":{"compress":true},"status":301}}

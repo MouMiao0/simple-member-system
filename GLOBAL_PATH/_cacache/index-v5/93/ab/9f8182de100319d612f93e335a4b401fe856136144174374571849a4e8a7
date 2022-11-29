@@ -1,0 +1,2 @@
+
+67abaf3d4f6c916b18b3fa63742206fe0bc76cb1	{"key":"make-fetch-happen:request-cache:https://registry.npm.taobao.org/escape-string-regexp","integrity":null,"time":1669738111801,"size":"262","metadata":{"time":1669738111801,"url":"https://registry.npm.taobao.org/escape-string-regexp","reqHeaders":{"accept":"application/vnd.npm.install-v1+json; q=1.0, application/json; q=0.8, */*"},"resHeaders":{"content-type":"text/html","date":"Tue, 29 Nov 2022 16:08:31 GMT","location":"https://registry.npmmirror.com/escape-string-regexp"},"options":{"compress":true},"status":301}}

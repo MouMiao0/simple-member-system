@@ -1,0 +1,2 @@
+
+5d18d734712f476ae5d45e3bcab1536f13a29812	{"key":"make-fetch-happen:request-cache:https://registry.npm.taobao.org/buffer-equal","integrity":null,"time":1669738110388,"size":"262","metadata":{"time":1669738110388,"url":"https://registry.npm.taobao.org/buffer-equal","reqHeaders":{"accept":"application/vnd.npm.install-v1+json; q=1.0, application/json; q=0.8, */*"},"resHeaders":{"content-type":"text/html","date":"Tue, 29 Nov 2022 16:08:29 GMT","location":"https://registry.npmmirror.com/buffer-equal"},"options":{"compress":true},"status":301}}

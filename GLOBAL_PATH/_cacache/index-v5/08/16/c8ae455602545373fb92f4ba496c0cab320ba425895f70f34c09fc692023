@@ -1,0 +1,2 @@
+
+4b2ac9dab3c4b8702471afc17fae899831c32b36	{"key":"make-fetch-happen:request-cache:https://registry.npm.taobao.org/vue-router","integrity":null,"time":1669739112918,"size":"262","metadata":{"time":1669739112918,"url":"https://registry.npm.taobao.org/vue-router","reqHeaders":{"accept":"application/vnd.npm.install-v1+json; q=1.0, application/json; q=0.8, */*"},"resHeaders":{"content-type":"text/html","date":"Tue, 29 Nov 2022 16:25:12 GMT","location":"https://registry.npmmirror.com/vue-router"},"options":{"compress":true},"status":301}}

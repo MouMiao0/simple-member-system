@@ -1,0 +1,2 @@
+
+8d8920198152736e2f1c82725d1406848fc0639d	{"key":"make-fetch-happen:request-cache:https://registry.npm.taobao.org/ajv-keywords","integrity":null,"time":1669738110160,"size":"262","metadata":{"time":1669738110160,"url":"https://registry.npm.taobao.org/ajv-keywords","reqHeaders":{"accept":"application/vnd.npm.install-v1+json; q=1.0, application/json; q=0.8, */*"},"resHeaders":{"content-type":"text/html","date":"Tue, 29 Nov 2022 16:08:29 GMT","location":"https://registry.npmmirror.com/ajv-keywords"},"options":{"compress":true},"status":301}}

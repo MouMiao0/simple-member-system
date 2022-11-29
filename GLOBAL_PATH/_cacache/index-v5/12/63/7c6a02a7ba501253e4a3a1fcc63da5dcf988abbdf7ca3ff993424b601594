@@ -1,0 +1,2 @@
+
+6df6243d2b8b7eefb59ce5b5d66ca8d536e19ff4	{"key":"make-fetch-happen:request-cache:https://registry.npm.taobao.org/prepend-http","integrity":null,"time":1669738111955,"size":"262","metadata":{"time":1669738111954,"url":"https://registry.npm.taobao.org/prepend-http","reqHeaders":{"accept":"application/vnd.npm.install-v1+json; q=1.0, application/json; q=0.8, */*"},"resHeaders":{"content-type":"text/html","date":"Tue, 29 Nov 2022 16:08:31 GMT","location":"https://registry.npmmirror.com/prepend-http"},"options":{"compress":true},"status":301}}

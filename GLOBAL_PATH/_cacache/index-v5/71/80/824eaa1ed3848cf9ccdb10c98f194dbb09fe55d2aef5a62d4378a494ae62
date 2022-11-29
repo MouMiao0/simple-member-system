@@ -1,0 +1,2 @@
+
+3cf9b29d7e1b468f7554cb52ff3b756ec413497d	{"key":"make-fetch-happen:request-cache:https://registry.npm.taobao.org/vue-template-compiler","integrity":null,"time":1669738114214,"size":"262","metadata":{"time":1669738114214,"url":"https://registry.npm.taobao.org/vue-template-compiler","reqHeaders":{"accept":"application/vnd.npm.install-v1+json; q=1.0, application/json; q=0.8, */*"},"resHeaders":{"content-type":"text/html","date":"Tue, 29 Nov 2022 16:08:33 GMT","location":"https://registry.npmmirror.com/vue-template-compiler"},"options":{"compress":true},"status":301}}

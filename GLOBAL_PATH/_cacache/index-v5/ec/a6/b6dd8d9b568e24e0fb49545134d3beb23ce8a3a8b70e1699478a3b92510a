@@ -1,0 +1,2 @@
+
+3b605a3c89772e5f9566c54c26b8d4d1f7b7f6f6	{"key":"make-fetch-happen:request-cache:https://registry.npm.taobao.org/electron-osx-sign","integrity":null,"time":1669738109885,"size":"262","metadata":{"time":1669738109885,"url":"https://registry.npm.taobao.org/electron-osx-sign","reqHeaders":{"accept":"application/vnd.npm.install-v1+json; q=1.0, application/json; q=0.8, */*"},"resHeaders":{"content-type":"text/html","date":"Tue, 29 Nov 2022 16:08:29 GMT","location":"https://registry.npmmirror.com/electron-osx-sign"},"options":{"compress":true},"status":301}}

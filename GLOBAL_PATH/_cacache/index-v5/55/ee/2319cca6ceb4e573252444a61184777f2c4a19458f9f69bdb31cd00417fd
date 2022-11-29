@@ -1,0 +1,2 @@
+
+f8207ebacbb7ae86f71feff6bc6edbc51962397e	{"key":"make-fetch-happen:request-cache:https://registry.npm.taobao.org/@vue%2fcompiler-ssr","integrity":null,"time":1669738113997,"size":"262","metadata":{"time":1669738113997,"url":"https://registry.npm.taobao.org/@vue%2fcompiler-ssr","reqHeaders":{"accept":"application/vnd.npm.install-v1+json; q=1.0, application/json; q=0.8, */*"},"resHeaders":{"content-type":"text/html","date":"Tue, 29 Nov 2022 16:08:33 GMT","location":"https://registry.npmmirror.com/@vue%2fcompiler-ssr"},"options":{"compress":true},"status":301}}

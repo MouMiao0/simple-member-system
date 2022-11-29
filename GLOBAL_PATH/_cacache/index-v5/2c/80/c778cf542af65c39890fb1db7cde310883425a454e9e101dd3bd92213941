@@ -1,0 +1,2 @@
+
+2be2d12ee0c96143aa33ea1b79ee7253cb34d64b	{"key":"make-fetch-happen:request-cache:https://registry.npm.taobao.org/7zip-bin","integrity":null,"time":1669738109882,"size":"262","metadata":{"time":1669738109882,"url":"https://registry.npm.taobao.org/7zip-bin","reqHeaders":{"accept":"application/vnd.npm.install-v1+json; q=1.0, application/json; q=0.8, */*"},"resHeaders":{"content-type":"text/html","date":"Tue, 29 Nov 2022 16:08:29 GMT","location":"https://registry.npmmirror.com/7zip-bin"},"options":{"compress":true},"status":301}}

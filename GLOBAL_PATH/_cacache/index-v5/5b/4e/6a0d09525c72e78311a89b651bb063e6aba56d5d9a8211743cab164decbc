@@ -1,0 +1,2 @@
+
+0777895054822d4ac3e05fb66c9400958515a6af	{"key":"make-fetch-happen:request-cache:https://registry.npm.taobao.org/tunnel","integrity":null,"time":1669738109626,"size":"262","metadata":{"time":1669738109626,"url":"https://registry.npm.taobao.org/tunnel","reqHeaders":{"accept":"application/vnd.npm.install-v1+json; q=1.0, application/json; q=0.8, */*"},"resHeaders":{"content-type":"text/html","date":"Tue, 29 Nov 2022 16:08:28 GMT","location":"https://registry.npmmirror.com/tunnel"},"options":{"compress":true},"status":301}}

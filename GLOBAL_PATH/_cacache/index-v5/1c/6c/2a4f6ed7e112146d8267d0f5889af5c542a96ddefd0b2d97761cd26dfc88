@@ -1,0 +1,2 @@
+
+1daf7ba4448019a66bd8ae11dd42a27923c936b6	{"key":"make-fetch-happen:request-cache:https://registry.npm.taobao.org/@volar%2flanguage-core","integrity":null,"time":1669738114213,"size":"262","metadata":{"time":1669738114213,"url":"https://registry.npm.taobao.org/@volar%2flanguage-core","reqHeaders":{"accept":"application/vnd.npm.install-v1+json; q=1.0, application/json; q=0.8, */*"},"resHeaders":{"content-type":"text/html","date":"Tue, 29 Nov 2022 16:08:33 GMT","location":"https://registry.npmmirror.com/@volar%2flanguage-core"},"options":{"compress":true},"status":301}}

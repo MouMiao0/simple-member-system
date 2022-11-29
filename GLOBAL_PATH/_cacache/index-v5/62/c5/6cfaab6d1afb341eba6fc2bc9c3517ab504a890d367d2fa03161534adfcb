@@ -1,0 +1,2 @@
+
+20dfc2e90d830af610cd331d19af77c11657d4cd	{"key":"make-fetch-happen:request-cache:https://registry.npm.taobao.org/electron-publish","integrity":null,"time":1669738109886,"size":"262","metadata":{"time":1669738109886,"url":"https://registry.npm.taobao.org/electron-publish","reqHeaders":{"accept":"application/vnd.npm.install-v1+json; q=1.0, application/json; q=0.8, */*"},"resHeaders":{"content-type":"text/html","date":"Tue, 29 Nov 2022 16:08:29 GMT","location":"https://registry.npmmirror.com/electron-publish"},"options":{"compress":true},"status":301}}

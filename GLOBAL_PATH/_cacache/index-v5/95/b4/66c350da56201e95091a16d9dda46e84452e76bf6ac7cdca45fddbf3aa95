@@ -1,0 +1,2 @@
+
+d70e06ef57b35036a165573d0251248509e4e044	{"key":"make-fetch-happen:request-cache:https://registry.npm.taobao.org/lru-cache","integrity":null,"time":1669738110177,"size":"262","metadata":{"time":1669738110177,"url":"https://registry.npm.taobao.org/lru-cache","reqHeaders":{"accept":"application/vnd.npm.install-v1+json; q=1.0, application/json; q=0.8, */*"},"resHeaders":{"content-type":"text/html","date":"Tue, 29 Nov 2022 16:08:29 GMT","location":"https://registry.npmmirror.com/lru-cache"},"options":{"compress":true},"status":301}}

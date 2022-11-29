@@ -1,0 +1,2 @@
+
+44e9b61ba406331bb81e3f979f3a5608c1b16975	{"key":"make-fetch-happen:request-cache:https://registry.npm.taobao.org/sumchecker","integrity":null,"time":1669738109418,"size":"262","metadata":{"time":1669738109418,"url":"https://registry.npm.taobao.org/sumchecker","reqHeaders":{"accept":"application/vnd.npm.install-v1+json; q=1.0, application/json; q=0.8, */*"},"resHeaders":{"content-type":"text/html","date":"Tue, 29 Nov 2022 16:08:28 GMT","location":"https://registry.npmmirror.com/sumchecker"},"options":{"compress":true},"status":301}}

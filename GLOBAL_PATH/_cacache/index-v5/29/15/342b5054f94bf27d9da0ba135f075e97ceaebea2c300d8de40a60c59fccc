@@ -1,0 +1,2 @@
+
+0aeb3728fc823a5d1e16fad56d1ccbcec27049bf	{"key":"make-fetch-happen:request-cache:https://registry.npm.taobao.org/ansi-regex","integrity":null,"time":1669738113722,"size":"262","metadata":{"time":1669738113722,"url":"https://registry.npm.taobao.org/ansi-regex","reqHeaders":{"accept":"application/vnd.npm.install-v1+json; q=1.0, application/json; q=0.8, */*"},"resHeaders":{"content-type":"text/html","date":"Tue, 29 Nov 2022 16:08:33 GMT","location":"https://registry.npmmirror.com/ansi-regex"},"options":{"compress":true},"status":301}}

@@ -1,0 +1,2 @@
+
+0bd1ce169f569ab1b47b54ff497e722f7d184b4c	{"key":"make-fetch-happen:request-cache:https://registry.npm.taobao.org/wrappy","integrity":null,"time":1669738111730,"size":"262","metadata":{"time":1669738111730,"url":"https://registry.npm.taobao.org/wrappy","reqHeaders":{"accept":"application/vnd.npm.install-v1+json; q=1.0, application/json; q=0.8, */*"},"resHeaders":{"content-type":"text/html","date":"Tue, 29 Nov 2022 16:08:31 GMT","location":"https://registry.npmmirror.com/wrappy"},"options":{"compress":true},"status":301}}

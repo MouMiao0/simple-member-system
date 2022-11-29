@@ -1,0 +1,2 @@
+
+a3c33007356bd74e4f02937d6feadbcd13972ad7	{"key":"make-fetch-happen:request-cache:https://registry.npm.taobao.org/sprintf-js","integrity":null,"time":1669738111801,"size":"262","metadata":{"time":1669738111801,"url":"https://registry.npm.taobao.org/sprintf-js","reqHeaders":{"accept":"application/vnd.npm.install-v1+json; q=1.0, application/json; q=0.8, */*"},"resHeaders":{"content-type":"text/html","date":"Tue, 29 Nov 2022 16:08:31 GMT","location":"https://registry.npmmirror.com/sprintf-js"},"options":{"compress":true},"status":301}}
