@@ -2,7 +2,7 @@
  * @Author: MouMeo 1606958950@qq.com
  * @Date: 2022-11-30 12:40:00
  * @LastEditors: MouMeo 1606958950@qq.com
- * @LastEditTime: 2022-11-30 20:36:16
+ * @LastEditTime: 2022-12-03 05:50:00
  * @FilePath: \electron-vite-vue\src\services\user_services.ts
  * @Description: 
  * 
@@ -20,7 +20,7 @@ export default interface user_services
      * @param password 密码
      * @returns 登陆结果;0 失败;1 成功; 
      */ 
-    login:(user_name: string, password: string)=>number
+    login:(user_name: string, password: string)=>Promise<Number>
 
 
     /**
@@ -45,5 +45,5 @@ export default interface user_services
      * @param password 密码
      * @returns 验证结果
      */
-    verfiy: (password: string)=>number
+    verfiy: (password: string)=>Promise<boolean>
 }

@@ -1,3 +1,13 @@
+<!--
+ * @Author: MouMeo 1606958950@qq.com
+ * @Date: 2022-12-01 17:07:10
+ * @LastEditors: MouMeo 1606958950@qq.com
+ * @LastEditTime: 2022-12-03 05:10:58
+ * @FilePath: \electron-vite-vue\src\components\member_phone_autocomplete.vue
+ * @Description: 
+ * 
+ * Copyright (c) 2022 by MouMeo 1606958950@qq.com, All Rights Reserved. 
+-->
 <template>
     <ElAutocomplete v-model="value" :fetch-suggestions="querySearch" value-key="phone" @select="select_member"  />
 </template>
@@ -33,10 +43,9 @@ const querySearch = (queryString: string, cb: any) => {
         ? []
         : (
             headerNumber == 1
-                ? memberServices.search_by_phone(phoneNumber)
-                : memberServices.search_by_phone_last_iv(phoneNumber)
+                ? memberServices.search_by_phone(phoneNumber).then((members)=>{cb(members)})
+                : memberServices.search_by_phone_last_iv(phoneNumber).then((members)=>{cb(members)})
         )
-    cb(results)
 }
 
 

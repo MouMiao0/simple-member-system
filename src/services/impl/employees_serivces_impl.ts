@@ -2,7 +2,7 @@
  * @Author: MouMeo 1606958950@qq.com
  * @Date: 2022-12-02 12:02:37
  * @LastEditors: MouMeo 1606958950@qq.com
- * @LastEditTime: 2022-12-02 12:49:09
+ * @LastEditTime: 2022-12-02 19:27:44
  * @FilePath: \electron-vite-vue\src\services\impl\employees_serivces_impl.ts
  * @Description: 
  * 
@@ -12,6 +12,7 @@
 import Employee from '@/db/model/employee';
 import IEmployeesSerivces from '@/services/employees_serivces'
 import IPage from '@/db/model/Ipage';
+import prisma from '@/db/PrismaStore';
 
 class EmployeesSerivcesImpl implements IEmployeesSerivces{
     

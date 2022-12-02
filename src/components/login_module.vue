@@ -2,7 +2,7 @@
  * @Author: MouMeo 1606958950@qq.com
  * @Date: 2022-11-30 16:02:57
  * @LastEditors: MouMeo 1606958950@qq.com
- * @LastEditTime: 2022-12-01 21:11:43
+ * @LastEditTime: 2022-12-03 00:25:07
  * @FilePath: \electron-vite-vue\src\components\login_module.vue
  * @Description: 
  * 
@@ -18,20 +18,21 @@ const serviceStore = useServiceStore();
 var user = reactive(serviceStore.user_info);
 
 function login() {
-    if (serviceStore.user_services.login(user.name as string, user.pw as string) == 1) {
+    serviceStore.user_services.login(user.name as string, user.pw as string).then((state) => {
         ElNotification({
             title: '提示',
             duration: 1500,
             message: h('i', { style: 'color: teal' }, '登陆成功'),
         })
         serviceStore.not_login = false;
-    } else {
+
+    }).catch(() => {
         ElNotification({
             title: '提示',
             duration: 1500,
             message: h('i', { style: 'color: teal' }, '用户名或密码错误'),
         })
-    }
+    })
 }
 </script>
 <template>

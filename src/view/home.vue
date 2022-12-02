@@ -2,7 +2,7 @@
  * @Author: MouMeo 1606958950@qq.com
  * @Date: 2022-11-30 15:34:37
  * @LastEditors: MouMeo 1606958950@qq.com
- * @LastEditTime: 2022-12-02 15:56:36
+ * @LastEditTime: 2022-12-03 03:08:52
  * @FilePath: \electron-vite-vue\src\view\home.vue
  * @Description: 
  * 
@@ -11,7 +11,7 @@
 <script setup lang="ts">
 import Login_module from '@/components/login_module.vue';
 import { useServiceStore } from '@/service';
-import { reactive, watch, watchEffect } from 'vue';
+import { reactive } from 'vue';
 import { useRouter } from 'vue-router';
 
 const router = useRouter();

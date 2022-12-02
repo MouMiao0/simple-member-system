@@ -2,16 +2,32 @@
  * @Author: MouMeo 1606958950@qq.com
  * @Date: 2022-11-30 11:59:40
  * @LastEditors: MouMeo 1606958950@qq.com
- * @LastEditTime: 2022-12-02 19:17:29
+ * @LastEditTime: 2022-12-03 02:54:55
  * @FilePath: \electron-vite-vue\src\db\model\user.ts
  * @Description: 
  * 
  * Copyright (c) 2022 by MouMeo 1606958950@qq.com, All Rights Reserved. 
  */
+import { DataTypes, Model } from "sequelize"
+import sequelize from "@/db/SequelizeDb"
 
+export default class User extends Model {
 
-export default interface user{
-    id?: number
-    name?: string
-    pw?: string
+    declare id?: number
+
+    declare name?: string
+
+    declare pw?: string
 }
+
+User.init({
+    id: {
+        type: DataTypes.INTEGER,
+        autoIncrement: true,
+        primaryKey: true
+    },
+    name: DataTypes.TEXT,
+    pw: DataTypes.TEXT
+}, {
+    sequelize: sequelize, tableName: 'user'
+})
