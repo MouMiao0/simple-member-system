@@ -50,6 +50,8 @@ async function createWindow() {
       nodeIntegration: true,
       contextIsolation: false,
     },
+    minHeight: 600,
+    minWidth: 800,
   })
 
   if (process.env.VITE_DEV_SERVER_URL) { // electron-vite-vue#298

@@ -1,5 +1,7 @@
 {
   "compilerOptions": {
+    "experimentalDecorators": true,
+    "emitDecoratorMetadata": true,
     "target": "ESNext",
     "module": "ESNext",
     "moduleResolution": "node",
@@ -8,13 +10,12 @@
     "esModuleInterop": true,
     "resolveJsonModule": true,
     "sourceMap": true,
-    "baseUrl": "./",
+    "baseUrl": ".",
     "strict": true,
-    "paths": {
-      "@/*" : ["src/*"]
-    },
+    "paths": {"@/*":["src/*"]},
     "allowSyntheticDefaultImports": true,
-    "skipLibCheck": true
+    "skipLibCheck": true,
+    "types": ["element-plus/global"]
   },
   "include": ["src"],
   "references": [

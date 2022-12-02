@@ -1,28 +1,30 @@
+<!--
+ * @Author: MouMeo 1606958950@qq.com
+ * @Date: 2022-11-30 00:02:42
+ * @LastEditors: MouMeo 1606958950@qq.com
+ * @LastEditTime: 2022-12-01 01:22:48
+ * @FilePath: \electron-vite-vue\src\App.vue
+ * @Description: 
+ * 
+ * Copyright (c) 2022 by MouMeo 1606958950@qq.com, All Rights Reserved. 
+-->
 <script setup lang="ts">
-// This starter template is using Vue 3 <script setup> SFCs
 
 import { onMounted } from 'vue';
 import { useRouter } from 'vue-router';
 
 const router  = useRouter();
 
-// Check out https://vuejs.org/api/sfc-script-setup.html#script-setup
 onMounted(()=>{
-    router.push({name: 'hello_world'})
+    router.push({path:"/home"})
 })
+
+
+
 </script>
 
 <template>
-  <div class="logo-box">
-    <img class="logo vite" src="./assets/vite.svg" >
-    <img class="logo electron" src="./assets/electron.svg" >
-    <img class="logo vue" src="./assets/vue.svg" >
-  </div>
-  <router-view></router-view>
-  <div class="static-public">
-    Place static files into the <code>/public</code> folder
-    <img style="width:77px;" :src="'./node.png'" >
-  </div>
+  <router-view/>
 </template>
 
 <style>
@@ -35,42 +37,4 @@ onMounted(()=>{
   margin-top: 60px;
 }
 
-.logo-box {
-  display: flex;
-  width: 100%;
-  justify-content: center;
-}
-
-.static-public {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.static-public code {
-  background-color: #eee;
-  padding: 2px 4px;
-  margin: 0 4px;
-  border-radius: 4px;
-  color: #304455;
-}
-
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: 0.75s;
-}
-
-.logo.vite:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-
-.logo.electron:hover {
-  filter: drop-shadow(0 0 2em #9FEAF9);
-}
-
-.logo.vue:hover {
-  filter: drop-shadow(0 0 2em #42b883aa);
-}
 </style>
