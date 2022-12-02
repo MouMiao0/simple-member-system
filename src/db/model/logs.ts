@@ -2,7 +2,7 @@
  * @Author: MouMeo 1606958950@qq.com
  * @Date: 2022-11-30 14:54:22
  * @LastEditors: MouMeo 1606958950@qq.com
- * @LastEditTime: 2022-12-02 17:10:41
+ * @LastEditTime: 2022-12-02 19:16:55
  * @FilePath: \electron-vite-vue\src\db\model\logs.ts
  * @Description: 
  * 
@@ -12,7 +12,7 @@ import Employee from "@/db/model/employee";
 import Member from "@/db/model/member";
 import Goods from "@/db/model/goods";
 
-export default class logs extends Model<logs>{
+export default interface logs {
 
     id?: number
 
@@ -24,7 +24,7 @@ export default class logs extends Model<logs>{
     /**
      * 员工id
      */
-    eId?: number
+    e_id?: number
 
     /**
      * 员工
@@ -34,7 +34,7 @@ export default class logs extends Model<logs>{
     /**
      * 会员id
      */
-    mId?: number
+    m_id?: number
 
     /**
      * 会员
@@ -44,7 +44,7 @@ export default class logs extends Model<logs>{
     /**
      * 商品id
      */
-    gId?:number
+    g_id?:number
 
     /**商品 */
     goods: Goods
@@ -58,5 +58,5 @@ export default class logs extends Model<logs>{
     /**
      * 记录时间
      */
-    createdTime?: Date
+    created_time?: Date
 }

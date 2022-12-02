@@ -2,7 +2,7 @@
  * @Author: MouMeo 1606958950@qq.com
  * @Date: 2022-12-02 15:23:29
  * @LastEditors: MouMeo 1606958950@qq.com
- * @LastEditTime: 2022-12-02 15:30:31
+ * @LastEditTime: 2022-12-02 19:17:17
  * @FilePath: \electron-vite-vue\src\db\model\revenue.ts
  * @Description: 
  * 
@@ -11,7 +11,7 @@
 /**
  * 收益
  */
-export default class Revenue {
+export default interface Revenue {
     /**
      * 总收入
      */

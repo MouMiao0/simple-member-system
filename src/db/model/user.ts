@@ -2,7 +2,7 @@
  * @Author: MouMeo 1606958950@qq.com
  * @Date: 2022-11-30 11:59:40
  * @LastEditors: MouMeo 1606958950@qq.com
- * @LastEditTime: 2022-12-02 17:21:48
+ * @LastEditTime: 2022-12-02 19:17:29
  * @FilePath: \electron-vite-vue\src\db\model\user.ts
  * @Description: 
  * 
@@ -10,7 +10,8 @@
  */
 
 
-export default class user extends Model<user>{
+export default interface user{
+    id?: number
     name?: string
     pw?: string
 }
