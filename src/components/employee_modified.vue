@@ -2,7 +2,7 @@
  * @Author: MouMeo 1606958950@qq.com
  * @Date: 2022-12-02 13:00:20
  * @LastEditors: MouMeo 1606958950@qq.com
- * @LastEditTime: 2022-12-02 14:51:52
+ * @LastEditTime: 2022-12-03 13:15:18
  * @FilePath: \electron-vite-vue\src\components\employee_modified.vue
  * @Description: 
  * 
@@ -38,11 +38,9 @@ const selectRow = (employee: Employee) => {
 }
 
 const handleEdit = ()=>{
-    if(employeesServices.modified_employee(editingEmployees.value)){
+    employeesServices.modified_employee(editingEmployees.value).then(()=>{
         tableRef.value.updateCurrentPage();
-    }else{
-
-    }
+    })
 }
 
 

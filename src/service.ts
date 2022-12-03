@@ -2,7 +2,7 @@
  * @Author: MouMeo 1606958950@qq.com
  * @Date: 2022-11-30 18:54:20
  * @LastEditors: MouMeo 1606958950@qq.com
- * @LastEditTime: 2022-12-03 04:06:28
+ * @LastEditTime: 2022-12-03 12:30:38
  * @FilePath: \electron-vite-vue\src\service.ts
  * @Description: 
  * 
@@ -27,7 +27,7 @@ import { ElLoading } from 'element-plus';
 
 interface serivceState{
     not_login: boolean
-    user_info: User
+    user_info: Record<any,String>
     user_services: user_services
     member_services: member_services
     goods_services: goods_services
@@ -45,7 +45,7 @@ export const useServiceStore = defineStore('serivce',{
     state: ():serivceState=>{
         return {
             not_login: true,
-            user_info: {name:'admin',pw:'admin'},
+            user_info: {name:'admin',pw:'admin'} ,
             user_services: user_services_impl,
             member_services: member_services_impl,
             goods_services: goods_services_impl,

@@ -1,11 +1,12 @@
 import Log from "@/db/model/logs";
 import Revenue from "@/db/model/revenue";
+import IPage from "@/db/model/Ipage";
 
 /*
  * @Author: MouMeo 1606958950@qq.com
  * @Date: 2022-11-30 13:52:31
  * @LastEditors: MouMeo 1606958950@qq.com
- * @LastEditTime: 2022-12-03 07:26:01
+ * @LastEditTime: 2022-12-03 13:32:05
  * @FilePath: \electron-vite-vue\src\services\log_services.ts
  * @Description: 
  * 

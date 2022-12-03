@@ -2,7 +2,7 @@
  * @Author: MouMeo 1606958950@qq.com
  * @Date: 2022-11-30 13:30:02
  * @LastEditors: MouMeo 1606958950@qq.com
- * @LastEditTime: 2022-12-03 08:32:24
+ * @LastEditTime: 2022-12-03 13:06:22
  * @FilePath: \electron-vite-vue\src\services\member_services.ts
  * @Description: 
  * 
@@ -27,7 +27,7 @@ export default interface member_services{
      * @param desc 是否按降序排序
      * @returns 会员列表
      */
-    get_members: (page: number = 0, sort: number = 0, desc: boolean = true)=>Promise<IPage<Member>>
+    get_members: (page?: number, sort?: number , desc?: boolean )=>Promise<IPage<Member>>
 
     /**
      * 添加会员

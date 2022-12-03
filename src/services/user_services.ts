@@ -29,7 +29,7 @@ export default interface user_services
      * @param after_user_name 修改后账号名
      * @returns 修改结果
      */
-    modified_user_name:(before_user_name: string, after_user_name: string)=>number
+    modified_user_name:(before_user_name: string, after_user_name: string)=>Promise<number>
 
 
     /**
@@ -38,7 +38,7 @@ export default interface user_services
      * @param after_password 修改后账号密码
      * @returns 修改结果
      */
-    modifed_user_pw: (before_password: string, after_password: string)=>number
+    modifed_user_pw: (before_password: string, after_password: string)=>Promise<number>
 
     /**
      * 用户验证

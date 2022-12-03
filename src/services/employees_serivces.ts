@@ -2,7 +2,7 @@
  * @Author: MouMeo 1606958950@qq.com
  * @Date: 2022-11-30 13:42:49
  * @LastEditors: MouMeo 1606958950@qq.com
- * @LastEditTime: 2022-12-02 12:10:06
+ * @LastEditTime: 2022-12-03 12:37:59
  * @FilePath: \electron-vite-vue\src\services\employees_serivces.ts
  * @Description: 
  * 
@@ -24,27 +24,26 @@ export default interface employees_serivces {
      * @param desc 是否为降序排序
      * @returns 员工页面
      */
-    get_employees: (page?: number, sort?:number, desc?: boolean)=>IPage<Employee>
+    get_employees: (page?: number, sort?:number, desc?: boolean)=> Promise<IPage<Employee>>
 
     /**
      * 添加员工
      * @param employee 员工
      */
-    add_employee: (employee: Employee)=> Employee | boolean
+    add_employee: (employee: Employee)=> Promise<Employee>
 
     /**
      * 修改员工信息
      * @param employee 员工信息
      * @returns 修改结果
      */
-    modified_employee: (employee: Employee)=> Employee | boolean
+    modified_employee: (employee: Employee)=> Promise<Employee> 
 
     /**
      * 删除员工
      * @param employee 员工
      * @returns 删除结果 
      */
-    remove_employee: (employee: Employee)=> boolean
-
+    remove_employee: (employee: Employee)=> Promise<boolean>
     
 }

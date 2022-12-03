@@ -2,7 +2,7 @@
  * @Author: MouMeo 1606958950@qq.com
  * @Date: 2022-12-01 16:46:29
  * @LastEditors: MouMeo 1606958950@qq.com
- * @LastEditTime: 2022-12-03 06:11:48
+ * @LastEditTime: 2022-12-03 13:33:22
  * @FilePath: \electron-vite-vue\src\components\member_modified.vue
  * @Description: 
  * 
@@ -69,6 +69,7 @@ const verfiy = (service: Promise<boolean>) => {
                                         type: 'success',
                                         message: `操作成功`,
                                     })
+                                    member.value = {} as Member;
                                 } else {
                                     ElMessage({
                                         type: 'info',

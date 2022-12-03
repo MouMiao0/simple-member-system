@@ -2,7 +2,7 @@
  * @Author: MouMeo 1606958950@qq.com
  * @Date: 2022-12-02 11:59:04
  * @LastEditors: MouMeo 1606958950@qq.com
- * @LastEditTime: 2022-12-02 14:47:04
+ * @LastEditTime: 2022-12-03 13:13:38
  * @FilePath: \electron-vite-vue\src\components\employee_table.vue
  * @Description: 
  * 
@@ -23,6 +23,7 @@
 </template>
 <script setup lang="ts">
 import Employee from '@/db/model/employee';
+import IPage from '@/db/model/Ipage';
 import { useServiceStore } from '@/service'
 import { ref } from 'vue'
 
@@ -31,12 +32,13 @@ const emit = defineEmits<{
     (e: 'selectRow', theEmployees: Employee): void
 }>()
 
-const page = ref(employeesServices.get_employees());
-const employees = page.value.record;
+const page = ref({} as IPage<Employee>);
+const employees = ref([] as Employee[]);
 
-const updateCurrentPage = (index: number = page.value.currentPage)=>{
-    console.log("调用了");
-    page.value = employeesServices.get_employees(index)
+const updateCurrentPage = ()=>{
+    employeesServices.get_employees(page.value.currentPage).then((v)=>{
+        page.value = v
+    })
 }
 
 defineExpose({updateCurrentPage})
