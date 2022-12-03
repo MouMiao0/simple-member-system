@@ -2,7 +2,7 @@
  * @Author: MouMeo 1606958950@qq.com
  * @Date: 2022-12-01 16:42:48
  * @LastEditors: MouMeo 1606958950@qq.com
- * @LastEditTime: 2022-12-03 04:36:09
+ * @LastEditTime: 2022-12-03 10:41:11
  * @FilePath: \electron-vite-vue\src\components\member_add.vue
  * @Description: 
  * 
@@ -34,18 +34,23 @@
                 </ElInput>
             </ElDescriptionsItem>
             <ElDescriptionsItem :align="'right'">
-                <ElButton size="large" type="primary" @click="add_member">确认注册</ElButton>
+                <ElButton size="large" type="primary" :disabled="addDisabled" @click="add_member">确认注册</ElButton>
             </ElDescriptionsItem>
         </ElDescriptions>
     </ElForm>
 </template>
 <script setup lang="ts">
 import Member from '@/db/model/member'
-import { ref } from 'vue';
+import { onUnmounted, ref, watch } from 'vue';
 import { useServiceStore } from '@/service';
 import { ElNotification } from 'element-plus';
 
 const member = ref({} as Member)
+const addDisabled = ref(true);
+
+const stopW = watch(member.value,(m)=>{
+    addDisabled.value = m.name == null || m.phone == null || m.sex == null || m.credit== null || m.plate_code== null;
+})
 
 const add_member = () => {
     useServiceStore().member_services.add_member(member.value)
@@ -82,6 +87,10 @@ const add_member = () => {
 
         })
 };
+
+onUnmounted(()=>{
+    stopW();
+})
 
 </script>
 <style>

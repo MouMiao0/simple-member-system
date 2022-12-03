@@ -2,7 +2,7 @@
  * @Author: MouMeo 1606958950@qq.com
  * @Date: 2022-12-02 15:47:55
  * @LastEditors: MouMeo 1606958950@qq.com
- * @LastEditTime: 2022-12-02 16:28:59
+ * @LastEditTime: 2022-12-03 11:44:07
  * @FilePath: \electron-vite-vue\src\components\log_revenue.vue
  * @Description: 
  * 
@@ -33,6 +33,8 @@
             </ElTableColumn>
             <ElTableColumn prop="createdTime" label="时间"/>
         </ElTable>
+        <ElDivider/>
+        <el-pagination background layout="prev, pager, next" :current-page="page.currentPage" @current-change="updatePage" :page-count="page.pageCounts" />
     </ElCard>
 </template>
 <script setup lang="ts">
@@ -41,21 +43,24 @@ import IPage from '@/db/model/Ipage';
 import Logs from '@/db/model/logs';
 import Revenue from '@/db/model/revenue';
 import { stringify } from 'querystring';
+import { onMounted, ref } from 'vue';
 
 const logService = useServiceStore().log_services;
 
-const page:IPage<Logs> = logService.get_logs();
+const page = ref({} as IPage<Logs>);
 
-const revenue = logService.info();
+const revenue = ref({} as Revenue);
 
-const logs = page.record;
+const logs =  ref([] as Logs[]);
 
 const getInfoByLog = (row: Logs): string=>{
     switch(row.operation){
         case 0:
-            return row.member.name + "消费了" + row.goods.name;
+            if(row.member == null || row.goods==null) return '';
+            return row.member.name  + "消费了" + row.goods.name;
 
         case 1:
+            if(row.goods == null) return '';
             return "入库了"+row.goods.name;
 
         case 2:
@@ -65,5 +70,28 @@ const getInfoByLog = (row: Logs): string=>{
             return ''
     }
 }
+
+const updatePage = (index:number)=>{
+    logService.get_logs(index).then((newPage: IPage<Logs>) => {
+        console.log(newPage)
+        page.value = newPage;
+        logs.value = newPage.record;
+    }).catch((e) => {
+        // console.log(e)
+    })
+
+}
+
+onMounted(() => {
+    logService.get_logs().then((newPage: IPage<Logs>) => {
+        page.value = newPage;
+        logs.value = newPage.record;
+    }).catch((e) => {
+        // console.log(e)
+    })
+    logService.info().then((v)=>{
+        revenue.value = v
+    })
+})
 
 </script>

@@ -68,18 +68,5 @@ export default class Logs extends Model {
     declare createAt?: Date
 }
 
-Logs.init({
-    id: {
-        type: DataTypes.INTEGER,
-        autoIncrement: true,
-        primaryKey: true
-    },
-    operation: DataTypes.INTEGER,
-    e_id: DataTypes.INTEGER,
-    m_id: DataTypes.INTEGER,
-    g_id: DataTypes.INTEGER,
-    goods_count: DataTypes.INTEGER,
-    amount: DataTypes.INTEGER,
-    createAt: { type: DataTypes.INTEGER, defaultValue: DataTypes.NOW }
-}, { sequelize: sequelize, tableName: 'logs' ,timestamps:false})
+
 

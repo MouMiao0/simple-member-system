@@ -2,7 +2,7 @@
  * @Author: MouMeo 1606958950@qq.com
  * @Date: 2022-12-01 23:50:58
  * @LastEditors: MouMeo 1606958950@qq.com
- * @LastEditTime: 2022-12-02 13:07:50
+ * @LastEditTime: 2022-12-03 07:14:19
  * @FilePath: \electron-vite-vue\src\components\goods_module.vue
  * @Description: 
  * 
@@ -48,8 +48,10 @@ const value = computed({
 })
 
 const querySearch = (queryString: string, cb: any)=>{
-    const res = goodsServices.queryGoods(queryString);
-    cb(res);
+    goodsServices.queryGoods(queryString)
+    .then((res)=>{
+        cb(res);
+    })
 }
 
 const handleSelect = (goods: Record<string, any>)=>{

@@ -2,7 +2,7 @@
  * @Author: MouMeo 1606958950@qq.com
  * @Date: 2022-12-01 23:46:21
  * @LastEditors: MouMeo 1606958950@qq.com
- * @LastEditTime: 2022-12-02 11:50:00
+ * @LastEditTime: 2022-12-03 11:29:47
  * @FilePath: \electron-vite-vue\src\components\goods_contents.vue
  * @Description: 
  * 
@@ -18,10 +18,10 @@
             <ElTableColumn label="操作" :min-width="150">
                 <template #default="scope">
                     <ElRow justify="space-evenly">
-                        <ElCol :span=10 >
+                        <ElCol :span=10>
                             <ElButton type="primary" @click="editGoods(scope.$index)">编辑</ElButton>
                         </ElCol>
-                        <ElCol :span=10 >
+                        <ElCol :span=10>
                             <el-popconfirm title="确认删除?" @confirm="delGoods(scope.$index)" confirm-button-text="是"
                                 cancel-button-text="否">
                                 <template #reference>
@@ -33,6 +33,8 @@
                 </template>
             </ElTableColumn>
         </ElTable>
+        <ElDivider/>
+        <el-pagination background layout="prev, pager, next" :current-page="page.currentPage" @current-change="updatePage" :page-count="page.pageCounts" />
     </ElCard>
     <ElDialog v-model="goodsModuleVisible">
         <goodsModuleVue v-model="editingGoods" :disable-auto-complete=true />
@@ -44,9 +46,10 @@
 </template>
 <script setup lang="ts">
 import { useServiceStore } from '@/service'
-import { ref } from 'vue';
+import { onMounted, ref } from 'vue';
 import goodsModuleVue from '@/components/goods_module.vue'
 import Goods from '@/db/model/goods';
+import IPage from '@/db/model/Ipage';
 
 const goodsModuleVisible = ref(false);
 let currentIndex: number;
@@ -54,8 +57,8 @@ let editingGoods: Goods;
 
 const serviceStore = useServiceStore();
 const goodsServices = serviceStore.goods_services;
-const page = goodsServices.get_goods();
-const goodsList = ref(page.record);
+const page = ref({} as IPage<Goods>);
+const goodsList = ref([] as Goods[]);
 
 const editGoods = (index: number) => {
     let goods = goodsList.value[index];
@@ -65,20 +68,35 @@ const editGoods = (index: number) => {
 }
 
 const doEditGoods = () => {
-    if (goodsServices.modified(editingGoods)) {
-        goodsList.value[currentIndex] = editingGoods;
-        goodsModuleVisible.value = false;
-    } else {
+    goodsServices.modified(editingGoods).then((state) => {
+        if (state) {
+            goodsList.value[currentIndex] = editingGoods;
+            goodsModuleVisible.value = false;
+        } else {
 
-    }
+        }
+    })
 }
 
 const delGoods = (index: number) => {
+    goodsServices.remove(goodsList.value[index]).then((state)=>{
+        if(state) goodsList.value.splice(index,1);
+    })
+}
 
-    if (goodsServices.remove(goodsList.value[index])) {
+onMounted(()=>{
+    goodsServices.get_goods()
+    .then((resPage)=>{
+        page.value = resPage;
+        goodsList.value = page.value.record;
+    })
+})
 
-    } else {
-
-    }
+const updatePage = (index:number)=>{
+    goodsServices.get_goods(index)
+    .then((resPage)=>{
+        page.value = resPage;
+        goodsList.value = page.value.record;
+    })
 }
 </script>

@@ -2,7 +2,7 @@
  * @Author: MouMeo 1606958950@qq.com
  * @Date: 2022-12-01 15:04:30
  * @LastEditors: MouMeo 1606958950@qq.com
- * @LastEditTime: 2022-12-03 06:14:17
+ * @LastEditTime: 2022-12-03 11:28:01
  * @FilePath: \electron-vite-vue\src\services\impl\member_services_impl.ts
  * @Description: 
  * 
@@ -13,19 +13,11 @@ import Member from "@/db/model/member";
 import IPage from "@/db/model/Ipage";
 import { PAGESIZE } from "./StaticVar";
 import { Op } from "sequelize";
+import  Goods  from "@/db/model/goods";
+import Logs from "@/db/model/logs";
 
 class member_services_impl implements member_services {
 
-    count: number
-
-    constructor() {
-        let members: Member[];
-        const that = this;
-        Member.findAll({}).then((value) => {
-            members = value;
-            that.count = members.length;
-        })
-    }
 
     public async add_member(member: Member): Promise<number> {
         if (member.phone == undefined || member.phone < 9999999999 || member.phone > 99999999999) return 0;
@@ -40,10 +32,10 @@ class member_services_impl implements member_services {
 
     public async get_members(page: number = 1, sort: number = 0, desc: boolean = true): Promise<IPage<Member>> {
         const offset = (page - 1) * 5;
-        const record = await Member.findAll({ offset: offset, limit: PAGESIZE });
-        const pageCounts = this.count > PAGESIZE ? (this.count / PAGESIZE) + 1 : 1;
+        const {count, rows} = await Member.findAndCountAll({ offset: offset, limit: PAGESIZE });
+        const pageCounts = count > PAGESIZE ? Math.floor(count / PAGESIZE) + 1 : 1;
         return {
-            record: record,
+            record: rows,
             currentPage: page,
             pageCounts: pageCounts,
             pageSize: PAGESIZE,
@@ -92,6 +84,26 @@ class member_services_impl implements member_services {
         }else{
             return false;
         }
+    }
+
+    async consume(member:Member, goods: Goods):Promise<Logs>{
+        const theMember = await Member.findByPk(member.id);
+        const theGoods = await Goods.findByPk(goods.id);
+        const amount = -1 * goods.count * (theGoods.price ?? 0);
+        if(theMember && theGoods){
+            theMember.sum_consum += amount;
+            theMember.month_consume += amount;
+            theMember.consum_count++;
+            theMember.credit -= amount;
+            theGoods.count += goods.count;
+            if(theMember.credit >= 0){
+                await theMember.save()
+                await theGoods.save()
+                const logs = await Logs.create({operation:0, member:theMember,goods:theGoods,amount: amount});
+                return logs;
+            }
+        }
+        return null;
     }
 }
 

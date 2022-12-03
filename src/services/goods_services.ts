@@ -2,7 +2,7 @@
  * @Author: MouMeo 1606958950@qq.com
  * @Date: 2022-11-30 13:38:28
  * @LastEditors: MouMeo 1606958950@qq.com
- * @LastEditTime: 2022-12-02 12:01:25
+ * @LastEditTime: 2022-12-03 06:53:34
  * @FilePath: \electron-vite-vue\src\services\goods_services.ts
  * @Description: 
  * 
@@ -24,28 +24,36 @@ export default interface goods_services{
      * @param desc 是否为降序排序
      * @returns 商品数组
      */
-    get_goods: (page?: number, sort?:number, desc?: boolean)=> IPage<Goods>
+    get_goods: (page?: number, sort?:number, desc?: boolean)=> Promise<IPage<Goods>>
 
     /**
      * 搜索商品
      * @param name 商品名字 
      * @returns 商品列表
      */
-    queryGoods: (name: string) => Goods[]
+    queryGoods: (name: string) => Promise<Goods[]>
 
     /**
      * 入库
      * @param goods 商品
+     * @param amount 花费
      * @returns 操作结果
      */
-    storage: (goods: Goods) => boolean
+    storage: (goods: Goods, amount: number) => Promise<boolean>
+
+    /**
+     * 商品添加
+     * @param goods 商品 
+     * @returns 添加结果
+     */
+    addGoods: (goods: Goods) => Promise<boolean>
     
     /**
      * 修改信息
      * @param goods 商品
      * @returns 操作结果 
      */
-    modified: (goods: Goods) => boolean
+    modified: (goods: Goods) => Promise<boolean>
     
 
     /**
@@ -53,5 +61,5 @@ export default interface goods_services{
      * @param goods 商品
      * @returns 操作结果
      */
-    remove: (goods: Goods) => boolean
+    remove: (goods: Goods) => Promise<boolean>
 }

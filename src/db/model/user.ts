@@ -20,14 +20,4 @@ export default class User extends Model {
     declare pw?: string
 }
 
-User.init({
-    id: {
-        type: DataTypes.INTEGER,
-        autoIncrement: true,
-        primaryKey: true
-    },
-    name: DataTypes.TEXT,
-    pw: DataTypes.TEXT
-}, {
-    sequelize: sequelize, tableName: 'user'
-})
+

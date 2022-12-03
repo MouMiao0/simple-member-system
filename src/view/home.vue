@@ -2,7 +2,7 @@
  * @Author: MouMeo 1606958950@qq.com
  * @Date: 2022-11-30 15:34:37
  * @LastEditors: MouMeo 1606958950@qq.com
- * @LastEditTime: 2022-12-03 03:08:52
+ * @LastEditTime: 2022-12-03 09:46:23
  * @FilePath: \electron-vite-vue\src\view\home.vue
  * @Description: 
  * 
@@ -48,21 +48,21 @@ const menu_list:menus[] = reactive([
             {name:"商品添增", path:"/home/add_goods"},
         ]
     },
-    {
-        title: "员工管理",
-        sub_menu:[
-            {name:"查看员工", path:"/home/employees"},
-            {name:"添加员工", path:"/home/add_employee"},
-            {name:"员工信息修改", path:"/home/employee_modified"},
-        ]
-    },
+    // {
+    //     title: "员工管理",
+    //     sub_menu:[
+    //         {name:"查看员工", path:"/home/employees"},
+    //         {name:"添加员工", path:"/home/add_employee"},
+    //         {name:"员工信息修改", path:"/home/employee_modified"},
+    //     ]
+    // },
     {
         title: "统计",
         sub_menu:[
             {name:"营收", path:"/home/log_revenue"},
             {name:"会员消费记录", path:"log_member"},
             {name:"货物入库消费", path:"log_goods"},
-            {name:"员工工资支出", path:"log_employee"},
+            // {name:"员工工资支出", path:"log_employee"},
         ]
     },
 ])

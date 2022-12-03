@@ -38,23 +38,4 @@ export default class member extends Model {
     declare consum_count?: number
 }
 
-member.init({
-    id: {
-        type: DataTypes.INTEGER,
-        autoIncrement: true,
-        primaryKey: true
-    },
-    name: DataTypes.TEXT,
-    plate_code: {
-        type: DataTypes.TEXT,
-        unique: true
-    },
-    phone: { type: DataTypes.INTEGER, unique: true },
-    sex: DataTypes.BLOB,
-    credit: DataTypes.INTEGER,
-    month_consume: DataTypes.INTEGER,
-    sum_consum: DataTypes.INTEGER,
-    consum_count: DataTypes.INTEGER,
-    createAt: { type: DataTypes.INTEGER, defaultValue: DataTypes.NOW }
-}, { sequelize: sequelize, tableName: 'member', timestamps: false })
 

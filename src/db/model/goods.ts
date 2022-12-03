@@ -28,15 +28,5 @@ export default class Goods extends Model {
     declare logs: Logs
 }
 
-Goods.init({
-    id: {
-        type: DataTypes.INTEGER,
-        autoIncrement: true,
-        primaryKey: true
-    },
-    name:{type: DataTypes.TEXT, unique: true},
-    price: DataTypes.INTEGER,
-    count: DataTypes.INTEGER,
-    createAt: { type: DataTypes.INTEGER, defaultValue: DataTypes.NOW }
-},{sequelize:sequelize,tableName:'goods',timestamps:false})
+
 

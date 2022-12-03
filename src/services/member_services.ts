@@ -2,7 +2,7 @@
  * @Author: MouMeo 1606958950@qq.com
  * @Date: 2022-11-30 13:30:02
  * @LastEditors: MouMeo 1606958950@qq.com
- * @LastEditTime: 2022-12-03 05:39:58
+ * @LastEditTime: 2022-12-03 08:32:24
  * @FilePath: \electron-vite-vue\src\services\member_services.ts
  * @Description: 
  * 
@@ -55,7 +55,7 @@ export default interface member_services{
      * @param goods 商品 
      * @returns 结果
      */
-    consume:(goods: Goods)=>Logs
+    consume:(member:Member, goods: Goods)=>Promise<Logs>
 
     /**
      * 会员充值

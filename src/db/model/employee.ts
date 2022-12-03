@@ -28,16 +28,6 @@ export default class Employee extends Model {
 
 }
 
-Employee.init({
-    id: {
-        type: DataTypes.INTEGER,
-        autoIncrement: true,
-        primaryKey: true
-    },
-    name: DataTypes.TEXT,
-    phone: DataTypes.INTEGER,
-    salary: DataTypes.INTEGER,
-    createAt: { type: DataTypes.INTEGER, defaultValue: DataTypes.NOW }
-}, { sequelize: sequelize, tableName: 'employee' , timestamps: false})
+
 
 

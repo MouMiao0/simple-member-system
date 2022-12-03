@@ -5,7 +5,7 @@ import Revenue from "@/db/model/revenue";
  * @Author: MouMeo 1606958950@qq.com
  * @Date: 2022-11-30 13:52:31
  * @LastEditors: MouMeo 1606958950@qq.com
- * @LastEditTime: 2022-12-02 16:35:32
+ * @LastEditTime: 2022-12-03 07:26:01
  * @FilePath: \electron-vite-vue\src\services\log_services.ts
  * @Description: 
  * 
@@ -16,7 +16,7 @@ export default interface log_services {
      * 统计营收
      * @returns  统计营收
      */
-    info: () => Revenue
+    info: () => Promise<Revenue>
 
     /**
      * 获取日志
@@ -25,7 +25,7 @@ export default interface log_services {
      * @param desc 是否为降序排序
      * @returns 日志页
      */
-    get_logs: (page?: number, sort?: number, desc?: boolean) => IPage<Log>
+    get_logs: (page?: number, sort?: number, desc?: boolean) => Promise<IPage<Log>>
 
 
     /**
@@ -35,7 +35,7 @@ export default interface log_services {
      * @param desc 是否为降序排序
      * @returns 日志页
      */
-    member_consumed: (page?: number, sort?: number, desc?: boolean) => IPage<Log>
+    member_consumed: (page?: number, sort?: number, desc?: boolean) =>Promise<IPage<Log>>
 
     /**
      * 工资支出
@@ -44,7 +44,7 @@ export default interface log_services {
      * @param desc 是否为降序排序
      * @returns 日志页
      */
-    employee_salaries: (page?: number, sort?: number, desc?: boolean) => IPage<Log>
+    employee_salaries: (page?: number, sort?: number, desc?: boolean) =>Promise<IPage<Log>>
 
     /**
      * 工资消费
@@ -53,5 +53,5 @@ export default interface log_services {
      * @param desc 是否为降序排序
      * @returns 日志页
      */
-    goods_storaged: (page?: number, sort?: number, desc?: boolean) => IPage<Log>
+    goods_storaged: (page?: number, sort?: number, desc?: boolean) =>Promise<IPage<Log>>
 }
