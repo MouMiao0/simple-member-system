@@ -2,7 +2,7 @@
  * @Author: MouMeo 1606958950@qq.com
  * @Date: 2022-12-01 23:57:48
  * @LastEditors: MouMeo 1606958950@qq.com
- * @LastEditTime: 2022-12-03 11:31:32
+ * @LastEditTime: 2022-12-03 13:55:41
  * @FilePath: \electron-vite-vue\src\services\impl\goods_services_impl.ts
  * @Description: 
  * 
@@ -11,7 +11,8 @@
 import Goods from "@/db/model/goods";
 import Logs from "@/db/model/logs";
 import goods_services from "@/services/goods_services";
-import { Op } from "sequelize";
+import IPage from "@/db/model/Ipage";
+import { Op, ModelStatic } from "sequelize";
 import { PAGESIZE } from "./StaticVar";
 
 class goods_services_impl implements goods_services {
@@ -54,12 +55,16 @@ class goods_services_impl implements goods_services {
     async queryGoods(name: string):Promise<Goods[]> {
         const strLike = '\%'+name+'\%'
         const goodsList = Goods.findAll({where:{name:{[Op.like]:strLike}}});
-        return goodsList as Goods[];
+        if(goodsList)return goodsList;
+        return [] as Goods[];
     };
 
     async addGoods(goods: Goods):Promise<boolean>{
+
         const theGoods = await Goods.create(goods);
-        if(theGoods.id!=null){
+        // const buildGoods = Goods.build(goods)
+        // const theGoods = await theGoods.save();
+        if(theGoods!=null){
             return true
         }else{
             return false
