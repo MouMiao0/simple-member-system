@@ -2,7 +2,7 @@
  * @Author: MouMeo 1606958950@qq.com
  * @Date: 2022-12-01 23:57:48
  * @LastEditors: MouMeo 1606958950@qq.com
- * @LastEditTime: 2022-12-03 13:55:41
+ * @LastEditTime: 2022-12-04 23:14:47
  * @FilePath: \electron-vite-vue\src\services\impl\goods_services_impl.ts
  * @Description: 
  * 
@@ -61,7 +61,7 @@ class goods_services_impl implements goods_services {
 
     async addGoods(goods: Goods):Promise<boolean>{
 
-        const theGoods = await Goods.create(goods);
+        const theGoods = await Goods.create(goods as Record<any,any>);
         // const buildGoods = Goods.build(goods)
         // const theGoods = await theGoods.save();
         if(theGoods!=null){

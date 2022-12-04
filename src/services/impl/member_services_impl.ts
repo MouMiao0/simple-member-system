@@ -2,7 +2,7 @@
  * @Author: MouMeo 1606958950@qq.com
  * @Date: 2022-12-01 15:04:30
  * @LastEditors: MouMeo 1606958950@qq.com
- * @LastEditTime: 2022-12-03 13:58:14
+ * @LastEditTime: 2022-12-04 23:15:16
  * @FilePath: \electron-vite-vue\src\services\impl\member_services_impl.ts
  * @Description: 
  * 
@@ -25,7 +25,7 @@ class member_services_impl implements member_services {
         if (phoneHas != null) return 2;
         const plateCodeHas = await Member.findOne({ where: { plate_code: member.plate_code } });
         if (plateCodeHas != null) return 3;
-        const resMember = await Member.create(member);
+        const resMember = await Member.create(member as Record<any,any>);
         return 1;
     }
 

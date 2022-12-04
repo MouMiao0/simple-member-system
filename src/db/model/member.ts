@@ -2,7 +2,7 @@
  * @Author: MouMeo 1606958950@qq.com
  * @Date: 2022-11-30 14:23:24
  * @LastEditors: MouMeo 1606958950@qq.com
- * @LastEditTime: 2022-12-03 13:45:10
+ * @LastEditTime: 2022-12-05 00:34:11
  * @FilePath: \electron-vite-vue\src\db\model\member.ts
  * @Description: 
  * 
@@ -11,7 +11,6 @@
 
 import Logs from "@/db/model/logs"
 import { Model } from "sequelize"
-import sequelize from "@/db/SequelizeDb"
 
 export default class member extends Model {
 
