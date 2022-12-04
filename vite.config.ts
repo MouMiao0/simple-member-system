@@ -1,8 +1,20 @@
+/*
+ * @Author: MouMeo 1606958950@qq.com
+ * @Date: 2022-11-30 00:02:42
+ * @LastEditors: MouMeo 1606958950@qq.com
+ * @LastEditTime: 2022-12-04 23:00:54
+ * @FilePath: \electron-vite-vue\vite.config.ts
+ * @Description: 
+ * 
+ * Copyright (c) 2022 by MouMeo 1606958950@qq.com, All Rights Reserved. 
+ */
+ * @LastEditors: MouMeo 1606958950@qq.com
 import { rmSync } from 'fs'
 import { defineConfig } from 'vite'
 import vue from '@vitejs/plugin-vue'
 import electron from 'vite-plugin-electron'
 import renderer from 'vite-plugin-electron-renderer'
+import topLevelAwait from 'vite-plugin-top-level-await'
 import pkg from './package.json'
 
 rmSync('dist-electron', { recursive: true, force: true })
@@ -12,6 +24,13 @@ const isBuild = process.argv.slice(2).includes('build')
 
 // https://vitejs.dev/config/
 export default defineConfig({
+    // Use Node.js API in the Renderer-process
+    topLevelAwait({
+      // The export name of top-level await promise for each chunk module
+      promiseExportName: '__tla',
+      // The function to generate import names of top-level await promise in each chunk module
+      promiseImportName: i => `__tla_${i}`
+    }),
   plugins: [
     vue(),
     electron([
