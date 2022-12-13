@@ -2,7 +2,7 @@
  * @Author: MouMeo 1606958950@qq.com
  * @Date: 2022-12-01 16:42:48
  * @LastEditors: MouMeo 1606958950@qq.com
- * @LastEditTime: 2022-12-03 10:41:11
+ * @LastEditTime: 2022-12-09 18:07:29
  * @FilePath: \electron-vite-vue\src\components\member_add.vue
  * @Description: 
  * 
@@ -40,12 +40,11 @@
     </ElForm>
 </template>
 <script setup lang="ts">
-import Member from '@/db/model/member'
 import { onUnmounted, ref, watch } from 'vue';
-import { useServiceStore } from '@/service';
+import { useServiceStore } from '../../src/Services';
 import { ElNotification } from 'element-plus';
 
-const member = ref({} as Member)
+const member = ref({} as IMember)
 const addDisabled = ref(true);
 
 const stopW = watch(member.value,(m)=>{
@@ -53,7 +52,7 @@ const stopW = watch(member.value,(m)=>{
 })
 
 const add_member = () => {
-    useServiceStore().member_services.add_member(member.value)
+    useServiceStore().memberServices.addMember(member.value as Record<any,any>)
         .then((code) => {
             switch (code) {
                 case 0:
@@ -73,16 +72,10 @@ const add_member = () => {
                 case 2:
                     ElNotification({
                         title: '注册失败',
-                        message: '手机号为' + member.value.phone + '的会员已存在',
+                        message: '请检查手机号和车牌号的会员是否已经存在',
                         duration: 2000,
                     })
                     break;
-                case 3:
-                    ElNotification({
-                        title: '注册失败',
-                        message: '车牌号为' + member.value.plate_code + '的会员已存在',
-                        duration: 2000,
-                    })
             }
 
         })

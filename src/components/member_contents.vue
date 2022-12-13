@@ -2,7 +2,7 @@
  * @Author: MouMeo 1606958950@qq.com
  * @Date: 2022-12-01 00:38:11
  * @LastEditors: MouMeo 1606958950@qq.com
- * @LastEditTime: 2022-12-03 11:24:00
+ * @LastEditTime: 2022-12-11 10:56:33
  * @FilePath: \electron-vite-vue\src\components\member_contents.vue
  * @Description: 
  * 
@@ -40,47 +40,49 @@
                 </template>
             </el-table-column>
             <el-table-column prop="credit" label="余额" width="180" />
-            <el-table-column prop="month_consume" label="月消费" width="180" />
+            <el-table-column prop="Logs.month_consum" label="月消费" width="180" />
             <el-table-column prop="sum_consum" label="总消费" width="180" />
             <el-table-column prop="consum_count" label="消费总次数" width="180" />
-            <el-table-column prop="createAt" label="创建时间" width="180" />
+            <el-table-column label="创建时间" width="180">
+                <template #default="scope">
+                    {{ (Util.getYYMMDD(scope.row.createAt)) }}
+                </template>
+            </el-table-column>
         </el-table>
-        <ElDivider/>
-        <el-pagination background layout="prev, pager, next" :current-page="page.currentPage" @current-change="updatePage" :page-count="page.pageCounts" />
+        <ElDivider />
+        <el-pagination background layout="prev, pager, next" :current-page="page.currentPage"
+            @current-change="updatePage" :page-count="page.pageCounts" />
     </el-row>
 </template>
 <script setup lang="ts">
-import { useServiceStore } from '@/service'
+import { useServiceStore } from '../../src/Services'
 import { h, onMounted, ref } from 'vue';
-import Member from '@/db/model/member'
-import MemberModuleVue from '@/components/member_module.vue';
-import IPage from '@/db/model/IPage';
-import GoodsModuleVue from '@/components/goods_module.vue';
-import Goods from '@/db/model/goods';
+import MemberModuleVue from '/src/components/member_module.vue';
+import GoodsModuleVue from '/src/components/goods_module.vue';
 import { ElNotification } from 'element-plus';
+import Util from '../util/Util';
 
 const serviceStore = useServiceStore();
-const memberServices = serviceStore.member_services;
+const memberServices = serviceStore.memberServices;
 
-const page = ref({} as IPage<Member>);
+const page = ref({} as Page<IMember>);
 
-const members = ref([{}] as Member[]);
+const members = ref([{}] as IMember[]);
 
-const goods = ref({ name: '' } as Goods);
+const goods = ref({ name: '' } as IGoods);
 
 const consumeCount = ref(0);
 
 const GoodsModuleVueVisible = ref(false)
 
-let member = ref({} as Member)
+let member = ref({} as IMember)
 
-function show(row?: Member) {
-    member.value = row as Member;
+function show(row?: IMember) {
+    member.value = row as IMember;
 }
 
-const updatePage = (index:number)=>{
-    memberServices.get_members(index).then((newPage: IPage<Member>) => {
-        console.log(newPage)
+const updatePage = (index: number) => {
+    memberServices.getMembers(index).then((newPage: Page<IMember>) => {
         page.value = newPage;
         members.value = newPage.record;
     }).catch((e) => {
@@ -89,13 +91,7 @@ const updatePage = (index:number)=>{
 }
 
 onMounted(() => {
-    memberServices.get_members().then((newPage: IPage<Member>) => {
-        page.value = newPage;
-        members.value = newPage.record;
-    }).catch((e) => {
-        // console.log(e)
-    })
-
+    updatePage(1);
 })
 
 const handleConsume = () => {
@@ -109,25 +105,32 @@ const handleConsume = () => {
         return;
     }
 
-    const consumeGoods: Goods = JSON.parse(JSON.stringify(goods.value));
+    const consumeGoods: IGoods = JSON.parse(JSON.stringify(goods.value));
+    const theMember: IMember = JSON.parse(JSON.stringify(member.value));
     consumeGoods.count = -1 * consumeCount.value;
-    memberServices.consume(member.value, consumeGoods)
+    memberServices.consume(theMember, consumeGoods)
         .then((log) => {
+            // console.log(log)
             if (log != null) {
                 ElNotification({
                     title: '提示',
                     duration: 1500,
-                    message: h('i', { style: 'color: teal' }, log.member?.name + '会员,消费了' + log.amount + '购买' + log.goods?.name)
+                    message: h('i', { style: 'color: teal' }, log.Member?.name + '会员,消费了' + -log.amount + '购买' + log.Good?.name)
                 })
+                if (log.Member && log.Good) {
+                    member.value = log.Member;
+                    goods.value = log.Good;
+                    updatePage(1);
+                }
             } else {
                 ElNotification({
                     title: '提示',
                     duration: 1500,
-                    message: h('i', { style: 'color: teal' }, "余额不足")
+                    message: h('i', { style: 'color: teal' }, "库存或余额不足")
                 })
             }
         })
-        
+
 }
 
 

@@ -2,7 +2,7 @@
  * @Author: MouMeo 1606958950@qq.com
  * @Date: 2022-12-01 23:53:30
  * @LastEditors: MouMeo 1606958950@qq.com
- * @LastEditTime: 2022-12-03 06:48:42
+ * @LastEditTime: 2022-12-12 21:30:10
  * @FilePath: \electron-vite-vue\src\components\goods_add.vue
  * @Description: 
  * 
@@ -15,10 +15,10 @@
                 <GoodsModuleVue v-model="currentGoods" :disable-auto-complete="false"
                     :readonly="true" />
                 <ElFormItem label="入库数量:">
-                    <ElInputNumber min="0" v-model="currentGoodscount"/>
+                    <ElInputNumber :min="0" v-model="currentGoodscount"/>
                 </ElFormItem>
-                <ElFormItem label="入库花费:">
-                    <ElInputNumber min="0" v-model="amount" />
+                <ElFormItem label="入库总花费:">
+                    <ElInputNumber :min="0" v-model="amount" />
                 </ElFormItem>
                 <ElRow>
                     <ElCol :lg="18" :md="16" :sm="10" />
@@ -42,16 +42,14 @@
     </ElRow>
 </template>
 <script setup lang="ts">
-import GoodsModuleVue from '@/components/goods_module.vue'
-import Goods from '@/db/model/goods';
+import GoodsModuleVue from '/src/components/goods_module.vue'
 import { h, onUnmounted, ref, watch } from 'vue';
-import { useServiceStore } from '@/service';
-import { stat } from 'fs';
+import { useServiceStore } from '../../src/Services';
 import { ElNotification } from 'element-plus';
 
-const goosdService = useServiceStore().goods_services;
-const currentGoods = ref({} as Goods);
-const newGoods = ref({} as Goods);
+const goosdService = useServiceStore().goodsServices;
+const currentGoods = ref({} as IGoods);
+const newGoods = ref({} as IGoods);
 const amount = ref(0)
 const currentGoodscount = ref(0)
 
@@ -76,7 +74,7 @@ const addGoods = () => {
 }
 
 const storage = () => {
-    const goods : Goods =  JSON.parse(JSON.stringify(currentGoods.value));
+    const goods : IGoods =  JSON.parse(JSON.stringify(currentGoods.value));
     if(goods!=null){
         if(goods.count == null) goods.count = currentGoodscount.value;
         else goods.count += currentGoodscount.value;

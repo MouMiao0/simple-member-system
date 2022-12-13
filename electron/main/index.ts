@@ -12,9 +12,20 @@ process.env.DIST_ELECTRON = join(__dirname, '..')
 process.env.DIST = join(process.env.DIST_ELECTRON, '../dist')
 process.env.PUBLIC = app.isPackaged ? process.env.DIST : join(process.env.DIST_ELECTRON, '../public')
 
-import { app, BrowserWindow, shell, ipcMain } from 'electron'
+import { app, shell, BrowserWindow, ipcMain } from 'electron'
 import { release } from 'os'
 import { join } from 'path'
+import SequelizeORM from '../db/SequelizeORM';
+import UserServicesImpl from '../services-impl/UserServicesImpl';
+import MemberServicesImpl from '../services-impl/MemberServicesImpl';
+import EmployeesSerivcesImpl from '../services-impl/EmployeesSerivcesImpl'
+import LogServicesImpl from '../services-impl/LogsServicesImpl'
+import GoodsServicesImpl from '../services-impl/GoodsServicesImpl';
+
+
+const remote = require('@electron/remote/main');
+
+remote.initialize();
 
 // Disable GPU Acceleration for Windows 7
 if (release().startsWith('6.1')) app.disableHardwareAcceleration()
@@ -72,9 +83,9 @@ async function createWindow() {
     if (url.startsWith('https:')) shell.openExternal(url)
     return { action: 'deny' }
   })
-}
 
-app.whenReady().then(createWindow)
+  remote.enable(win.webContents)
+}
 
 app.on('window-all-closed', () => {
   win = null
@@ -98,19 +109,43 @@ app.on('activate', () => {
   }
 })
 
-// New window example arg: new windows url
-ipcMain.handle('open-win', (event, arg) => {
-  const childWindow = new BrowserWindow({
-    webPreferences: {
-      preload,
-      nodeIntegration: true,
-      contextIsolation: false,
-    },
-  })
+app.whenReady().then(() => {
+  SequelizeORM.InitORM().then(() => {
+    global.userServices = UserServicesImpl;
+    global.memberservices = MemberServicesImpl;
+    global.employeesServices = EmployeesSerivcesImpl;
+    global.logsServices = LogServicesImpl;
+    global.goodsService = GoodsServicesImpl;
 
-  if (process.env.VITE_DEV_SERVER_URL) {
-    childWindow.loadURL(`${url}#${arg}`)
-  } else {
-    childWindow.loadFile(indexHtml, { hash: arg })
-  }
+    createWindow()
+
+    //#region ipc调用
+    // ipcMain.handle('service:userServices',Util.returnSingeltionPromise(UserServicesImpl))
+
+    // ipcMain.handle('user:login', Util.IpcMainAdapterNoEvent(UserServicesImpl.prototype.login))
+    // ipcMain.handle('user:verfiy',Util.IpcMainAdapterNoEvent(UserServicesImpl.prototype.verfiy))
+    // ipcMain.handle('member:getMembers',Util.IpcMainAdapterNoEvent(MemberServicesImpl.prototype.getMembers))
+    // ipcMain.handle('member:addMember',Util.IpcMainAdapterNoEvent(MemberServicesImpl.prototype.addMember))
+    // ipcMain.handle('member:consume',Util.IpcMainAdapterNoEvent(MemberServicesImpl.prototype.consume))
+    // ipcMain.handle('member:modifiedMember',Util.IpcMainAdapterNoEvent(MemberServicesImpl.prototype.modifiedMember))
+    // ipcMain.handle('member:pay',Util.IpcMainAdapterNoEvent(MemberServicesImpl.prototype.pay))
+    // ipcMain.handle('member:removeMember',Util.IpcMainAdapterNoEvent(MemberServicesImpl.prototype.removeMember))
+    // ipcMain.handle('member:searchByPhone',Util.IpcMainAdapterNoEvent(MemberServicesImpl.prototype.searchByPhone))
+    // ipcMain.handle('member:searchByPhoneLastIV',Util.IpcMainAdapterNoEvent(MemberServicesImpl.prototype.searchByPhoneLastIV))
+    // ipcMain.handle('goods:getGoods',Util.IpcMainAdapterNoEvent(GoodsServicesImpl.prototype.getGoods))
+    // ipcMain.handle('goods:addGoods',Util.IpcMainAdapterNoEvent(GoodsServicesImpl.prototype.addGoods))
+    // ipcMain.handle('goods:modified',Util.IpcMainAdapterNoEvent(GoodsServicesImpl.prototype.modified))
+    // ipcMain.handle('goods:queryGoods',Util.IpcMainAdapterNoEvent(GoodsServicesImpl.prototype.queryGoods))
+    // ipcMain.handle('goods:remove',Util.IpcMainAdapterNoEvent(GoodsServicesImpl.prototype.remove))
+    // ipcMain.handle('goods:storage',Util.IpcMainAdapterNoEvent(GoodsServicesImpl.prototype.storage))
+    // ipcMain.handle('logs:getLogs',Util.IpcMainAdapterNoEvent(LogServicesImpl.prototype.getLogs))
+    // ipcMain.handle('logs:employeeSalaries',Util.IpcMainAdapterNoEvent(LogServicesImpl.prototype.employeeSalaries))
+    // ipcMain.handle('logs:goodsStoraged',Util.IpcMainAdapterNoEvent(LogServicesImpl.prototype.goodsStoraged))
+    // ipcMain.handle('logs:info',Util.IpcMainAdapterNoEvent(LogServicesImpl.prototype.info))
+    // ipcMain.handle('logs:memberConsumed',Util.IpcMainAdapterNoEvent(LogServicesImpl.prototype.memberConsumed))
+    //#endregion
+
+  })
 })
+
+

@@ -2,7 +2,7 @@
  * @Author: MouMeo 1606958950@qq.com
  * @Date: 2022-11-30 00:02:42
  * @LastEditors: MouMeo 1606958950@qq.com
- * @LastEditTime: 2022-12-01 14:53:50
+ * @LastEditTime: 2022-12-06 05:28:19
  * @FilePath: \electron-vite-vue\src\main.ts
  * @Description: 
  * 
@@ -14,7 +14,6 @@ import ElementPlus from 'element-plus'
 import 'element-plus/dist/index.css'
 import AppVue from './App.vue'
 import { router } from './router'
-import './samples/node-api'
 import * as ElementPlusIconsVue from '@element-plus/icons-vue'
 
 const pinia = createPinia();

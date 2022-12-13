@@ -2,7 +2,7 @@
  * @Author: MouMeo 1606958950@qq.com
  * @Date: 2022-12-01 16:50:15
  * @LastEditors: MouMeo 1606958950@qq.com
- * @LastEditTime: 2022-12-03 05:32:28
+ * @LastEditTime: 2022-12-10 08:53:45
  * @FilePath: \electron-vite-vue\src\components\member_recharge.vue
  * @Description: 
  * 
@@ -21,14 +21,13 @@
     </ElCard>
 </template>
 <script setup lang="ts">
-import memberModuleVue from '@/components/member_module.vue';
-import Member from '@/db/model/member';
+import memberModuleVue from '/src/components/member_module.vue';
 import { ElMessage, ElMessageBox } from 'element-plus';
 import { ref } from 'vue';
-import { useServiceStore } from '@/service';
+import { useServiceStore } from '../../src/Services';
 
-const member = ref({} as Member);
-const memberServices = useServiceStore().member_services;
+const member = ref({} as IMember);
+const memberServices = useServiceStore().memberServices;
 
 const open = () => {
     ElMessageBox.prompt('请输入金额', 'Tip', {
@@ -40,7 +39,8 @@ const open = () => {
     })
         .then((value) => {
             const amount = Number(value.value);
-            memberServices.pay(member.value, amount)
+            const theMember : IMember = JSON.parse(JSON.stringify(member.value));
+            memberServices.pay(theMember, amount)
                 .then((state) => {
                     if (state) {
                         ElMessage({

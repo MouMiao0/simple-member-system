@@ -12,7 +12,6 @@
     "sourceMap": true,
     "baseUrl": ".",
     "strict": true,
-    "paths": {"@/*":["src/*"]},
     "allowSyntheticDefaultImports": true,
     "skipLibCheck": true,
     "types": ["element-plus/global"]

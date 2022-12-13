@@ -2,7 +2,7 @@
  * @Author: MouMeo 1606958950@qq.com
  * @Date: 2022-12-02 12:59:25
  * @LastEditors: MouMeo 1606958950@qq.com
- * @LastEditTime: 2022-12-02 13:51:53
+ * @LastEditTime: 2022-12-12 23:04:35
  * @FilePath: \electron-vite-vue\src\components\employee_add.vue
  * @Description: 
  * 
@@ -11,14 +11,34 @@
 <template>
     <ElCard header="添加员工">
         <EmployeeModuleVue v-model="employee" />
-        <ElButton type="primary">确认添加</ElButton>
+        <ElButton type="primary" @click="hanlderAddEmployee">确认添加</ElButton>
     </ElCard>
 </template>
 <script setup lang="ts">
-import Employee from '@/db/model/employee';
 import { ref } from 'vue';
-import EmployeeModuleVue from '@/components/employee_module.vue';
+import EmployeeModuleVue from '/src/components/employee_module.vue';
+import { useServiceStore } from '../Services';
+import { ElNotification } from 'element-plus';
+import Util from '../util/Util';
 
-const employee = ref( {} as Employee);
+const employeesServices = useServiceStore().employeesServices;
+
+const employee = ref({} as IEmployee);
+
+const addEmployee = () => {
+    return new Promise<boolean>((resolve, reject) => {
+        const theEmployee: IEmployee = JSON.parse(JSON.stringify(employee.value))
+        employeesServices.addEmployee(theEmployee)
+            .then((newEmployee) => {
+                ElNotification({
+                    title: '提示',
+                    message: '添加' + newEmployee.name + '员工成功,月薪为' + newEmployee.salary
+                })
+                resolve(true)
+            }).catch(e=>reject(e))
+    })
+}
+
+const hanlderAddEmployee = () => { Util.verfiy(addEmployee,JSON.parse(JSON.stringify(employee.value))) }
 
 </script>

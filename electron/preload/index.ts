@@ -1,3 +1,19 @@
+/*
+ * @Author: MouMeo 1606958950@qq.com
+ * @Date: 2022-11-30 00:02:42
+ * @LastEditors: MouMeo 1606958950@qq.com
+ * @LastEditTime: 2022-12-09 22:30:19
+ * @FilePath: \electron-vite-vue\electron\preload\index.ts
+ * @Description: 
+ * 
+ * Copyright (c) 2022 by MouMeo 1606958950@qq.com, All Rights Reserved. 
+ */
+
+import { contextBridge, ipcRenderer } from "electron"
+import { before } from "node:test"
+import Util from '../util/Util';
+import UserServicesImpl from '../services-impl/UserServicesImpl';
+
 function domReady(condition: DocumentReadyState[] = ['complete', 'interactive']) {
   return new Promise(resolve => {
     if (condition.includes(document.readyState)) {
@@ -90,3 +106,4 @@ window.onmessage = ev => {
 }
 
 setTimeout(removeLoading, 4999)
+

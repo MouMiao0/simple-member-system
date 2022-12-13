@@ -7,7 +7,7 @@
   "license": "MTM",
   "private": true,
   "scripts": {
-    "dev": "vue-tsc --noEmit && vite",
+    "dev": "chcp 65001 && vue-tsc --noEmit && vite ",
     "build": "vue-tsc --noEmit && vite build && electron-builder",
     "electron:rebuild": "electron-rebuild -f -w sqlite3"
   },
@@ -15,9 +15,11 @@
     "node": "^14.18.0 || >=16.0.0"
   },
   "dependencies": {
+    "@electron/remote": "^2.0.9",
     "@element-plus/icons-vue": "^2.0.10",
     "electron-store": "^8.1.0",
     "element-plus": "^2.2.25",
+    "fs-extra": "^11.1.0",
     "pg-hstore": "^2.3.4",
     "pinia": "^2.0.27",
     "reflect-metadata": "^0.1.13",
@@ -27,6 +29,7 @@
     "vue-router": "^4.1.6"
   },
   "devDependencies": {
+    "@types/fs-extra": "^9.0.13",
     "@types/node": "^18.11.10",
     "@types/validator": "^13.7.10",
     "@vitejs/plugin-vue": "^3.1.2",

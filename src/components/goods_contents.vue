@@ -2,7 +2,7 @@
  * @Author: MouMeo 1606958950@qq.com
  * @Date: 2022-12-01 23:46:21
  * @LastEditors: MouMeo 1606958950@qq.com
- * @LastEditTime: 2022-12-03 11:29:47
+ * @LastEditTime: 2022-12-06 05:11:31
  * @FilePath: \electron-vite-vue\src\components\goods_contents.vue
  * @Description: 
  * 
@@ -45,20 +45,18 @@
     </ElDialog>
 </template>
 <script setup lang="ts">
-import { useServiceStore } from '@/service'
+import { useServiceStore } from '../../src/Services'
 import { onMounted, ref } from 'vue';
-import goodsModuleVue from '@/components/goods_module.vue'
-import Goods from '@/db/model/goods';
-import IPage from '@/db/model/Ipage';
+import goodsModuleVue from '/src/components/goods_module.vue'
 
 const goodsModuleVisible = ref(false);
 let currentIndex: number;
-let editingGoods: Goods;
+let editingGoods: IGoods;
 
 const serviceStore = useServiceStore();
-const goodsServices = serviceStore.goods_services;
-const page = ref({} as IPage<Goods>);
-const goodsList = ref([] as Goods[]);
+const goodsServices = serviceStore.goodsServices;
+const page = ref({} as Page<IGoods>);
+const goodsList = ref([] as IGoods[]);
 
 const editGoods = (index: number) => {
     let goods = goodsList.value[index];
@@ -85,7 +83,7 @@ const delGoods = (index: number) => {
 }
 
 onMounted(()=>{
-    goodsServices.get_goods()
+    goodsServices.getGoods()
     .then((resPage)=>{
         page.value = resPage;
         goodsList.value = page.value.record;
@@ -93,7 +91,7 @@ onMounted(()=>{
 })
 
 const updatePage = (index:number)=>{
-    goodsServices.get_goods(index)
+    goodsServices.getGoods(index)
     .then((resPage)=>{
         page.value = resPage;
         goodsList.value = page.value.record;

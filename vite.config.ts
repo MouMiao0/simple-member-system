@@ -2,7 +2,7 @@
  * @Author: MouMeo 1606958950@qq.com
  * @Date: 2022-11-30 00:02:42
  * @LastEditors: MouMeo 1606958950@qq.com
- * @LastEditTime: 2022-12-04 23:13:46
+ * @LastEditTime: 2022-12-05 04:39:28
  * @FilePath: \electron-vite-vue\vite.config.ts
  * @Description: 
  * 
@@ -85,10 +85,5 @@ export default defineConfig({
       port: +url.port,
     }
   })() : undefined,
-  clearScreen: false,
-  resolve:{
-    alias:{
-      '@': path.resolve(__dirname, "src")
-    }
-  }
+  clearScreen: false
 })

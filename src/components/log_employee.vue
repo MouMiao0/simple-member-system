@@ -2,7 +2,7 @@
  * @Author: MouMeo 1606958950@qq.com
  * @Date: 2022-12-02 15:52:04
  * @LastEditors: MouMeo 1606958950@qq.com
- * @LastEditTime: 2022-12-03 08:07:44
+ * @LastEditTime: 2022-12-06 05:13:15
  * @FilePath: \electron-vite-vue\src\components\log_employee.vue
  * @Description: 
  * 
@@ -17,18 +17,17 @@
     </ElTable>
 </template>
 <script setup lang="ts">
-import { useServiceStore } from '@/service';
+import { useServiceStore } from '../../src/Services';
 import { onMounted, ref } from 'vue';
-import IPage from '@/db/model/Ipage';
-import Logs from '@/db/model/logs';
 
-const logService = useServiceStore().log_services;
 
-const employeeLogsPage =  ref<IPage<Logs>>();
-const employeeLogs = ref<Logs[]>()
+const logService = useServiceStore().logsServices;
+
+const employeeLogsPage =  ref<Page<ILogs>>();
+const employeeLogs = ref<ILogs[]>()
 
 onMounted(()=>{
-    logService.employee_salaries()
+    logService.employeeSalaries()
     .then((page)=>{
         employeeLogsPage.value  = page;
         employeeLogs.value   = employeeLogsPage.value?.record;

@@ -2,7 +2,7 @@
  * @Author: MouMeo 1606958950@qq.com
  * @Date: 2022-12-02 13:00:20
  * @LastEditors: MouMeo 1606958950@qq.com
- * @LastEditTime: 2022-12-03 13:15:18
+ * @LastEditTime: 2022-12-12 23:19:17
  * @FilePath: \electron-vite-vue\src\components\employee_modified.vue
  * @Description: 
  * 
@@ -21,25 +21,31 @@
     <EmployeeTableVue ref="tableRef" @select-row="selectRow" />
 </template>
 <script setup lang="ts">
-import EmployeeTableVue from '@/components/employee_table.vue';
-import EmployeeModuleVue from '@/components/employee_module.vue'
+import EmployeeTableVue from '/src/components/employee_table.vue';
+import EmployeeModuleVue from '/src/components/employee_module.vue'
 import { ref } from 'vue';
-import Employee from '@/db/model/employee';
-import { useServiceStore } from '@/service';
+import { useServiceStore } from '../../src/Services';
+import Util from '../util/Util';
 
 const tableRef = ref();
-const editingEmployees = ref({} as Employee)
-const currentEmployees = ref({} as Employee)
-const employeesServices = useServiceStore().employees_services;
+const editingEmployees = ref({} as IEmployee)
+const currentEmployees = ref({} as IEmployee)
+const employeesServices = useServiceStore().employeesServices;
 
-const selectRow = (employee: Employee) => {
+const selectRow = (employee: IEmployee) => {
     editingEmployees.value = JSON.parse(JSON.stringify(employee));
     currentEmployees.value = employee;
 }
 
-const handleEdit = ()=>{
-    employeesServices.modified_employee(editingEmployees.value).then(()=>{
-        tableRef.value.updateCurrentPage();
+const handleEdit = () => {
+    Util.verfiy(() => {
+        return new Promise<boolean>((resolve, reject) => {
+            employeesServices.modifiedEmployee(editingEmployees.value).then(() => {
+                tableRef.value.updateCurrentPage();
+                resolve(true)
+            }).catch(e=>reject(e))
+        }
+        )
     })
 }
 

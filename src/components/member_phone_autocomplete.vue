@@ -2,7 +2,7 @@
  * @Author: MouMeo 1606958950@qq.com
  * @Date: 2022-12-01 17:07:10
  * @LastEditors: MouMeo 1606958950@qq.com
- * @LastEditTime: 2022-12-03 05:10:58
+ * @LastEditTime: 2022-12-10 09:09:46
  * @FilePath: \electron-vite-vue\src\components\member_phone_autocomplete.vue
  * @Description: 
  * 
@@ -12,8 +12,7 @@
     <ElAutocomplete v-model="value" :fetch-suggestions="querySearch" value-key="phone" @select="select_member"  />
 </template>
 <script setup lang="ts">
-import member from '@/db/model/member';
-import { useServiceStore } from "@/service"
+import { useServiceStore } from "../../src/Services"
 import { computed } from 'vue'
 
 const props = defineProps(['modelValue'])
@@ -21,20 +20,20 @@ const emit = defineEmits(['update:modelValue'])
 
 const value = computed({
     get() {
-        return (props.modelValue as member).phone
+        return (props.modelValue as IMember).phone
     },
     set(value) {
-        emit('update:modelValue', { phone: value } as member)
+        emit('update:modelValue', { phone: value } as IMember)
     }
 })
 
 const select_member = (item: Record<string, any>) => {
-    emit('update:modelValue', item as member)
+    emit('update:modelValue', item as IMember)
 }
 
 
 const serviceStore = useServiceStore();
-const memberServices = serviceStore.member_services;
+const memberServices = serviceStore.memberServices;
 
 const querySearch = (queryString: string, cb: any) => {
     const phoneNumber = Number(queryString);
@@ -42,9 +41,9 @@ const querySearch = (queryString: string, cb: any) => {
     const results = isNaN(headerNumber)
         ? []
         : (
-            headerNumber == 1
-                ? memberServices.search_by_phone(phoneNumber).then((members)=>{cb(members)})
-                : memberServices.search_by_phone_last_iv(phoneNumber).then((members)=>{cb(members)})
+            headerNumber === 1
+                ? memberServices.searchByPhone(phoneNumber).then((members)=>{cb(members)})
+                : memberServices.searchByPhoneLastIV(phoneNumber).then((members)=>{cb(members)})
         )
 }
 
