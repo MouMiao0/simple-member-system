@@ -5,7 +5,7 @@ import { useServiceStore } from '../../src/Services'
  * @Author: MouMeo 1606958950@qq.com
  * @Date: 2022-12-11 10:29:00
  * @LastEditors: MouMeo 1606958950@qq.com
- * @LastEditTime: 2022-12-13 13:32:26
+ * @LastEditTime: 2022-12-14 20:55:52
  * @FilePath: \electron-vite-vue\src\util\Util.ts
  * @Description: 
  * 
@@ -24,10 +24,11 @@ export default class Util {
             + (hours < 10 ? '0' + hours : hours) + ':' + (mimu < 10 ? '0' + mimu : mimu);
     }
     /**用户验证 */
-    static verfiy(service: (...arg:any) => Promise<boolean>, ...args: any) {
+    static verfiy(service: (...arg: any) => Promise<boolean>, ...args: any) {
         return new Promise<void>((resolve, reject) => {
             const userServices = useServiceStore().userServices;
             ElMessageBox.prompt('请输入密码', 'Tip', {
+                inputType: 'password',
                 confirmButtonText: '确定',
                 cancelButtonText: '取消',
             })

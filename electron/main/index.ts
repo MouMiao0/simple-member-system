@@ -66,20 +66,15 @@ async function createWindow() {
     // frame: false//关闭原生导航栏
   })
 
-  Menu.setApplicationMenu(null);
 
   if (process.env.VITE_DEV_SERVER_URL) { // electron-vite-vue#298
     win.loadURL(url)
     // Open devTool if the app is not packaged
-    win.webContents.openDevTools()
+    win.webContents.openDevTools();
   } else {
     win.loadFile(indexHtml)
+    Menu.setApplicationMenu(null);
   }
-
-  // Test actively push message to the Electron-Renderer
-  win.webContents.on('did-finish-load', () => {
-    win?.webContents.send('main-process-message', new Date().toLocaleString())
-  })
 
   // Make all links open with the browser, not with the application
   win.webContents.setWindowOpenHandler(({ url }) => {
@@ -87,7 +82,17 @@ async function createWindow() {
     return { action: 'deny' }
   })
 
-  remote.enable(win.webContents)
+  remote.enable(win.webContents);
+
+  SequelizeORM.InitORM().then(() => {
+    global.userServices = UserServicesImpl;
+    global.memberservices = MemberServicesImpl;
+    global.employeesServices = EmployeesSerivcesImpl;
+    global.logsServices = LogServicesImpl;
+    global.goodsService = GoodsServicesImpl;
+    win.webContents.send("InitFin", true);
+  })
+
 }
 
 app.on('window-all-closed', () => {
@@ -113,42 +118,7 @@ app.on('activate', () => {
 })
 
 app.whenReady().then(() => {
-  SequelizeORM.InitORM().then(() => {
-    global.userServices = UserServicesImpl;
-    global.memberservices = MemberServicesImpl;
-    global.employeesServices = EmployeesSerivcesImpl;
-    global.logsServices = LogServicesImpl;
-    global.goodsService = GoodsServicesImpl;
-
-    createWindow()
-
-    //#region ipc调用
-    // ipcMain.handle('service:userServices',Util.returnSingeltionPromise(UserServicesImpl))
-
-    // ipcMain.handle('user:login', Util.IpcMainAdapterNoEvent(UserServicesImpl.prototype.login))
-    // ipcMain.handle('user:verfiy',Util.IpcMainAdapterNoEvent(UserServicesImpl.prototype.verfiy))
-    // ipcMain.handle('member:getMembers',Util.IpcMainAdapterNoEvent(MemberServicesImpl.prototype.getMembers))
-    // ipcMain.handle('member:addMember',Util.IpcMainAdapterNoEvent(MemberServicesImpl.prototype.addMember))
-    // ipcMain.handle('member:consume',Util.IpcMainAdapterNoEvent(MemberServicesImpl.prototype.consume))
-    // ipcMain.handle('member:modifiedMember',Util.IpcMainAdapterNoEvent(MemberServicesImpl.prototype.modifiedMember))
-    // ipcMain.handle('member:pay',Util.IpcMainAdapterNoEvent(MemberServicesImpl.prototype.pay))
-    // ipcMain.handle('member:removeMember',Util.IpcMainAdapterNoEvent(MemberServicesImpl.prototype.removeMember))
-    // ipcMain.handle('member:searchByPhone',Util.IpcMainAdapterNoEvent(MemberServicesImpl.prototype.searchByPhone))
-    // ipcMain.handle('member:searchByPhoneLastIV',Util.IpcMainAdapterNoEvent(MemberServicesImpl.prototype.searchByPhoneLastIV))
-    // ipcMain.handle('goods:getGoods',Util.IpcMainAdapterNoEvent(GoodsServicesImpl.prototype.getGoods))
-    // ipcMain.handle('goods:addGoods',Util.IpcMainAdapterNoEvent(GoodsServicesImpl.prototype.addGoods))
-    // ipcMain.handle('goods:modified',Util.IpcMainAdapterNoEvent(GoodsServicesImpl.prototype.modified))
-    // ipcMain.handle('goods:queryGoods',Util.IpcMainAdapterNoEvent(GoodsServicesImpl.prototype.queryGoods))
-    // ipcMain.handle('goods:remove',Util.IpcMainAdapterNoEvent(GoodsServicesImpl.prototype.remove))
-    // ipcMain.handle('goods:storage',Util.IpcMainAdapterNoEvent(GoodsServicesImpl.prototype.storage))
-    // ipcMain.handle('logs:getLogs',Util.IpcMainAdapterNoEvent(LogServicesImpl.prototype.getLogs))
-    // ipcMain.handle('logs:employeeSalaries',Util.IpcMainAdapterNoEvent(LogServicesImpl.prototype.employeeSalaries))
-    // ipcMain.handle('logs:goodsStoraged',Util.IpcMainAdapterNoEvent(LogServicesImpl.prototype.goodsStoraged))
-    // ipcMain.handle('logs:info',Util.IpcMainAdapterNoEvent(LogServicesImpl.prototype.info))
-    // ipcMain.handle('logs:memberConsumed',Util.IpcMainAdapterNoEvent(LogServicesImpl.prototype.memberConsumed))
-    //#endregion
-
-  })
+  createWindow();
 })
 
 
