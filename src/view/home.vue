@@ -2,7 +2,7 @@
  * @Author: MouMeo 1606958950@qq.com
  * @Date: 2022-11-30 15:34:37
  * @LastEditors: MouMeo 1606958950@qq.com
- * @LastEditTime: 2022-12-13 13:34:26
+ * @LastEditTime: 2022-12-13 15:11:46
  * @FilePath: \electron-vite-vue\src\view\home.vue
  * @Description: 
  * 
@@ -11,9 +11,11 @@
 <script setup lang="ts">
 import Login_module from '/src/components/login_module.vue';
 import { useServiceStore } from '../../src/Services';
-import { reactive } from 'vue';
+import { onBeforeUnmount, reactive, ref, watch } from 'vue';
 import { useRouter } from 'vue-router';
+import { range } from 'lodash';
 
+const asideMenu = ref();
 const router = useRouter();
 const serviceStore = useServiceStore();
 
@@ -67,26 +69,40 @@ const menu_list: menus[] = reactive([
     },
 ])
 
+const homeCloseAll = watch(router.currentRoute,()=>{
+    if(router.currentRoute.value.fullPath === '/home'){
+        for(let i in range(menu_list.length)){
+            asideMenu.value.close(i);
+        }
+    }
+})
+
+onBeforeUnmount(()=>{
+    homeCloseAll();
+})
+
 </script>
 <template>
-    <el-drawer direction="ltr" tiltle="登陆" :close-on-click-modal=false :close-on-press-escape=false :show-close=false
-        v-model="serviceStore.not_login">
-        <Login_module />
-    </el-drawer>
     <ElContainer>
-        <ElAside width="200px">
-            <el-menu :router=true>
-                <el-sub-menu v-for="(menu, index) in menu_list" :index="String(index)">
-                    <template #title>
-                        <span>{{ menu.title }}</span>
-                    </template>
-                    <el-menu-item v-for="item in menu.sub_menu" :index=item.path>{{ item.name }}</el-menu-item>
-                </el-sub-menu>
-            </el-menu>
-        </ElAside>
-        <ElMain>
-            <router-view />
-        </ElMain>
+        <ElContainer>
+            <ElAside width="200px">
+                <el-menu :router=true ref="asideMenu">
+                    <el-sub-menu v-for="(menu, index) in menu_list" :index="String(index)">
+                        <template #title>
+                            <span>{{ menu.title }}</span>
+                        </template>
+                        <el-menu-item v-for="item in menu.sub_menu" :index=item.path>{{ item.name }}</el-menu-item>
+                    </el-sub-menu>
+                </el-menu>
+            </ElAside>
+            <ElMain>
+                <router-view />
+            </ElMain>
+        </ElContainer>
+        <el-drawer direction="ltr" tiltle="登陆" :close-on-click-modal=false :close-on-press-escape=false
+            :show-close=false v-model="serviceStore.not_login">
+            <Login_module />
+        </el-drawer>
     </ElContainer>
 </template>
 <style>

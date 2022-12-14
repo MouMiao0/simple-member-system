@@ -2,7 +2,7 @@
  * @Author: MouMeo 1606958950@qq.com
  * @Date: 2022-11-30 18:54:20
  * @LastEditors: MouMeo 1606958950@qq.com
- * @LastEditTime: 2022-12-11 07:20:26
+ * @LastEditTime: 2022-12-14 15:44:42
  * @FilePath: \electron-vite-vue\src\Services.ts
  * @Description: 
  * 
@@ -37,7 +37,7 @@ export const useServiceStore = defineStore('serivce', {
     state: (): serivceState => {
         return {
             not_login: true,
-            user_info: { name: '123', pw: '123' },
+            user_info: { name: '', pw: '' },
             userServices: UserServices,
             memberServices: MemberServices,
             goodsServices: GoodsService,

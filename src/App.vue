@@ -2,14 +2,14 @@
  * @Author: MouMeo 1606958950@qq.com
  * @Date: 2022-11-30 00:02:42
  * @LastEditors: MouMeo 1606958950@qq.com
- * @LastEditTime: 2022-12-09 20:14:49
+ * @LastEditTime: 2022-12-13 15:54:34
  * @FilePath: \electron-vite-vue\src\App.vue
  * @Description: 
  * 
  * Copyright (c) 2022 by MouMeo 1606958950@qq.com, All Rights Reserved. 
 -->
 <script setup lang="ts">
-
+import UserHeaderBarVue from '/src/components/UserHeaderBar.vue';
 import { onMounted } from 'vue';
 import { useRouter } from 'vue-router';
 import { useServiceStore } from './Services';
@@ -19,13 +19,20 @@ const services = useServiceStore();
 const router = useRouter();
 
 onMounted(() => {
-  router.push({ path: "/home" });
+  handleBack();
 })
 
-
+const handleBack = () => {
+  router.replace({ path: '/home' })
+}
 </script>
 
 <template>
+  <el-page-header @back="handleBack">
+    <template #extra>
+      <UserHeaderBarVue />
+    </template>
+  </el-page-header>
   <router-view />
 </template>
 

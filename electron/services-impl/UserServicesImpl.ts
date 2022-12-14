@@ -6,7 +6,7 @@ import Singleton from "../util/Singleton";
  * @Author: MouMeo 1606958950@qq.com
  * @Date: 2022-11-30 17:10:40
  * @LastEditors: MouMeo 1606958950@qq.com
- * @LastEditTime: 2022-12-11 10:18:35
+ * @LastEditTime: 2022-12-14 15:11:00
  * @FilePath: \electron-vite-vue\electron\services-impl\UserServicesImpl.ts
  * @Description: 
  * 
@@ -91,7 +91,7 @@ class UserServicesImpl implements IUserServices {
                     pw: this.userPW
                 }
             }).then((user) => {
-                user.set('name', after_user_name);
+                user.name = after_user_name;
                 user.save().then(() => { resolve(1) }).catch(e => reject(e))
             }).catch(e => reject(e))
         })

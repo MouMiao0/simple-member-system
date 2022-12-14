@@ -2,7 +2,7 @@
  * @Author: MouMeo 1606958950@qq.com
  * @Date: 2022-12-02 15:47:55
  * @LastEditors: MouMeo 1606958950@qq.com
- * @LastEditTime: 2022-12-11 11:03:24
+ * @LastEditTime: 2022-12-13 15:12:31
  * @FilePath: \electron-vite-vue\src\components\log_revenue.vue
  * @Description: 
  * 
@@ -83,7 +83,7 @@ const getInfoByLog = (row: ILogs): string => {
 
 const updatePage = (index: number) => {
     logService.getLogs(index).then((newPage: Page<ILogs>) => {
-        console.log(newPage)
+        // console.log(newPage)
         page.value = newPage;
         logs.value = newPage.record;
         logService.info().then((v) => {

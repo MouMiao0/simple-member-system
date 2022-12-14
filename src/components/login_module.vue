@@ -2,23 +2,23 @@
  * @Author: MouMeo 1606958950@qq.com
  * @Date: 2022-11-30 16:02:57
  * @LastEditors: MouMeo 1606958950@qq.com
- * @LastEditTime: 2022-12-11 07:20:58
+ * @LastEditTime: 2022-12-14 15:45:44
  * @FilePath: \electron-vite-vue\src\components\login_module.vue
  * @Description: 
  * 
  * Copyright (c) 2022 by MouMeo 1606958950@qq.com, All Rights Reserved. 
 -->
 <script setup lang="ts">
-import { h, ref } from 'vue';
+import { h, ref, reactive } from 'vue';
 import { ElNotification } from 'element-plus';
 import { useServiceStore } from '../../src/Services';
 
 const serviceStore = useServiceStore();
 
-var user = ref(serviceStore.user_info as IUser);
+var user = reactive(serviceStore.user_info as IUser);
 
 function login() {
-    serviceStore.userServices.login(user.value.name as string, user.value.pw as string).then((state) => {
+    serviceStore.userServices.login(user.name as string, user.pw as string).then((state) => {
         // console.log(state)
         if (state === 1) {
             ElNotification({

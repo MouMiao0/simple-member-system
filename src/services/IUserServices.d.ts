@@ -2,7 +2,7 @@
  * @Author: MouMeo 1606958950@qq.com
  * @Date: 2022-11-30 12:40:00
  * @LastEditors: MouMeo 1606958950@qq.com
- * @LastEditTime: 2022-12-06 04:56:55
+ * @LastEditTime: 2022-12-14 15:05:24
  * @FilePath: \electron-vite-vue\src\services\IUserServices.d.ts
  * @Description: 
  * 
@@ -29,7 +29,7 @@ interface IUserServices
      * @param after_user_name 修改后账号名
      * @returns 修改结果
      */
-    modified_user_name:(before_user_name: string, after_user_name: string)=>Promise<number>
+    modifiedUserName:(before_user_name: string, after_user_name: string)=>Promise<number>
 
 
     /**
@@ -38,7 +38,7 @@ interface IUserServices
      * @param after_password 修改后账号密码
      * @returns 修改结果
      */
-    modified_user_pw: (before_password: string, after_password: string)=>Promise<number>
+    modifedUserPw: (before_password: string, after_password: string)=>Promise<number>
 
     /**
      * 用户验证
