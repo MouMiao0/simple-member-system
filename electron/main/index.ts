@@ -12,7 +12,7 @@ process.env.DIST_ELECTRON = join(__dirname, '..')
 process.env.DIST = join(process.env.DIST_ELECTRON, '../dist')
 process.env.PUBLIC = app.isPackaged ? process.env.DIST : join(process.env.DIST_ELECTRON, '../public')
 
-import { app, shell, BrowserWindow, ipcMain } from 'electron'
+import { app, shell, BrowserWindow, ipcMain, Menu } from 'electron'
 import { release } from 'os'
 import { join } from 'path'
 import SequelizeORM from '../db/SequelizeORM';
@@ -63,7 +63,10 @@ async function createWindow() {
     },
     minHeight: 600,
     minWidth: 800,
+    // frame: false//关闭原生导航栏
   })
+
+  Menu.setApplicationMenu(null);
 
   if (process.env.VITE_DEV_SERVER_URL) { // electron-vite-vue#298
     win.loadURL(url)

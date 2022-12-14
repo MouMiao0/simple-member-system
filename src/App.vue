@@ -2,7 +2,7 @@
  * @Author: MouMeo 1606958950@qq.com
  * @Date: 2022-11-30 00:02:42
  * @LastEditors: MouMeo 1606958950@qq.com
- * @LastEditTime: 2022-12-13 15:54:34
+ * @LastEditTime: 2022-12-14 19:55:37
  * @FilePath: \electron-vite-vue\src\App.vue
  * @Description: 
  * 
@@ -43,6 +43,5 @@ const handleBack = () => {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-  margin-top: 60px;
 }
 </style>

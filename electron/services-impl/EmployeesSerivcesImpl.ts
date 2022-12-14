@@ -6,7 +6,7 @@ import { Employee } from './model-bind/Employee';
  * @Author: MouMeo 1606958950@qq.com
  * @Date: 2022-12-02 12:02:37
  * @LastEditors: MouMeo 1606958950@qq.com
- * @LastEditTime: 2022-12-12 21:27:36
+ * @LastEditTime: 2022-12-14 19:29:25
  * @FilePath: \electron-vite-vue\electron\services-impl\EmployeesSerivcesImpl.ts
  * @Description: 
  * 
@@ -63,6 +63,25 @@ class EmployeesSerivcesImpl implements IEmployeesSerivces {
                 .then((theEmployee) => {
                     theEmployee.destroy().then(() => { resolve(true) }).catch(e => reject(e))
                 }).catch(e => reject(e))
+        })
+    }
+
+
+    paySalary(): Promise<boolean> {
+        const employeeMapper = SequelizeORM.ORM.models.Employee;
+        const logsMapper = SequelizeORM.ORM.models.Logs;
+        return new Promise<boolean>((resolve, reject) => {
+            employeeMapper.findAll()
+                .then((employees)=>{
+                    employees.forEach((theEmployee)=>{
+                        logsMapper.create({
+                            operation:2,
+                            e_id: theEmployee.id,
+                            amount: theEmployee.salary
+                        })
+                    })
+                })
+                .finally(()=>{resolve(true)}).catch(e=>reject(e))
         })
     }
 }

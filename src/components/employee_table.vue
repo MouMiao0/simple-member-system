@@ -2,15 +2,19 @@
  * @Author: MouMeo 1606958950@qq.com
  * @Date: 2022-12-02 11:59:04
  * @LastEditors: MouMeo 1606958950@qq.com
- * @LastEditTime: 2022-12-12 23:21:33
+ * @LastEditTime: 2022-12-14 19:23:56
  * @FilePath: \electron-vite-vue\src\components\employee_table.vue
  * @Description: 
  * 
  * Copyright (c) 2022 by MouMeo 1606958950@qq.com, All Rights Reserved. 
 -->
 <template>
-    <ElButton>发放工资</ElButton>
     <ElCard>
+        <ElRow>
+            <ElCol :offset="20" :span="4">
+                <ElButton v-show="(prop.hiddenButton == undefined || !prop.hiddenButton)" @click="handlePaySalary">发放工资</ElButton>
+            </ElCol>
+        </ElRow>
         <ElTable :data="employees" @cell-click="(row) => { emit('selectRow', row as IEmployee) }">
             <ElTableColumn prop="name" label="名字" />
             <ElTableColumn prop="phone" label="手机号" />
@@ -30,9 +34,13 @@
 import { useServiceStore } from '../../src/Services'
 import { onMounted, ref } from 'vue'
 import Util from '../util/Util';
+import { ElNotification } from 'element-plus';
 
-
+const prop = defineProps<{
+    hiddenButton?: boolean 
+}>()
 const employeesServices = useServiceStore().employeesServices;
+
 const emit = defineEmits<{
     (e: 'selectRow', theEmployees: IEmployee): void
 }>()
@@ -48,6 +56,10 @@ const updateCurrentPage = () => {
 }
 
 defineExpose({ updateCurrentPage })
+
+const handlePaySalary = ()=>{
+    Util.verfiy(employeesServices.paySalary)
+}
 
 onMounted(() => {
     updateCurrentPage();

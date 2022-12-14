@@ -2,7 +2,7 @@
  * @Author: MouMeo 1606958950@qq.com
  * @Date: 2022-11-30 13:42:49
  * @LastEditors: MouMeo 1606958950@qq.com
- * @LastEditTime: 2022-12-05 05:21:11
+ * @LastEditTime: 2022-12-14 19:07:21
  * @FilePath: \electron-vite-vue\electron\services\IEmployeesSerivces.d.ts
  * @Description: 
  * 
@@ -43,5 +43,8 @@ interface IEmployeesSerivces {
      * @returns 删除结果 
      */
     removeEmployee: (employee: IEmployee)=> Promise<boolean>
+
+    /**发放薪水 */
+    paySalary:()=>Promise<boolean>
     
 }

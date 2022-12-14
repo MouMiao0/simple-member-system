@@ -2,7 +2,7 @@
  * @Author: MouMeo 1606958950@qq.com
  * @Date: 2022-12-05 14:30:05
  * @LastEditors: MouMeo 1606958950@qq.com
- * @LastEditTime: 2022-12-06 22:26:51
+ * @LastEditTime: 2022-12-14 19:46:10
  * @FilePath: \electron-vite-vue\electron\db\SequelizeORM.ts
  * @Description: 
  * 
@@ -91,7 +91,11 @@ class SequelizeORM extends Singleton<SequelizeORM>{
                                 orm.sync({ force: true }).then(() => {
                                     console.log('数据库初次初始化成功');
                                     this.ORM = orm;
-                                    resolve(orm);
+                                    const userMapper = orm.models.User;
+                                    userMapper.create({ name: 'admin', pw: 'admin' })
+                                        .then(() => {
+                                            resolve(orm);
+                                        }).catch(e => reject(e))
                                 })
                             })
                             .catch((e) => {

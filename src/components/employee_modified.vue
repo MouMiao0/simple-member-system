@@ -2,7 +2,7 @@
  * @Author: MouMeo 1606958950@qq.com
  * @Date: 2022-12-02 13:00:20
  * @LastEditors: MouMeo 1606958950@qq.com
- * @LastEditTime: 2022-12-12 23:19:17
+ * @LastEditTime: 2022-12-14 18:23:27
  * @FilePath: \electron-vite-vue\src\components\employee_modified.vue
  * @Description: 
  * 
@@ -18,15 +18,16 @@
             </ElCol>
         </ElRow>
     </ElCard>
-    <EmployeeTableVue ref="tableRef" @select-row="selectRow" />
+    <EmployeeTableVue ref="tableRef" @select-row="selectRow" :hiddenButton="tableButtonHidden" />
 </template>
 <script setup lang="ts">
 import EmployeeTableVue from '/src/components/employee_table.vue';
 import EmployeeModuleVue from '/src/components/employee_module.vue'
-import { ref } from 'vue';
+import { onBeforeUnmount, onMounted, ref } from 'vue';
 import { useServiceStore } from '../../src/Services';
 import Util from '../util/Util';
 
+const tableButtonHidden = ref(true);
 const tableRef = ref();
 const editingEmployees = ref({} as IEmployee)
 const currentEmployees = ref({} as IEmployee)
@@ -48,6 +49,14 @@ const handleEdit = () => {
         )
     })
 }
+
+onMounted(()=>{
+    tableButtonHidden.value = true;
+})
+
+onBeforeUnmount(()=>{
+    tableButtonHidden.value = false;
+})
 
 
 </script>
