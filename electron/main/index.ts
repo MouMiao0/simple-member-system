@@ -58,6 +58,7 @@ async function createWindow() {
       // Warning: Enable nodeIntegration and disable contextIsolation is not secure in production
       // Consider using contextBridge.exposeInMainWorld
       // Read more on https://www.electronjs.org/docs/latest/tutorial/context-isolation
+      devTools:true,
       nodeIntegration: true,
       contextIsolation: false,
     },
@@ -65,7 +66,8 @@ async function createWindow() {
     minWidth: 800,
     // frame: false//关闭原生导航栏
   })
-
+  
+  remote.enable(win.webContents);
 
   if (process.env.VITE_DEV_SERVER_URL) { // electron-vite-vue#298
     win.loadURL(url)
@@ -76,23 +78,16 @@ async function createWindow() {
     Menu.setApplicationMenu(null);
   }
 
+  // Test actively push message to the Electron-Renderer
+  win.webContents.on('did-finish-load', () => {
+    win?.webContents.send('main-process-message', new Date().toLocaleString())
+  })
+
   // Make all links open with the browser, not with the application
   win.webContents.setWindowOpenHandler(({ url }) => {
     if (url.startsWith('https:')) shell.openExternal(url)
     return { action: 'deny' }
   })
-
-  remote.enable(win.webContents);
-
-  SequelizeORM.InitORM().then(() => {
-    global.userServices = UserServicesImpl;
-    global.memberservices = MemberServicesImpl;
-    global.employeesServices = EmployeesSerivcesImpl;
-    global.logsServices = LogServicesImpl;
-    global.goodsService = GoodsServicesImpl;
-    win.webContents.send("InitFin", true);
-  })
-
 }
 
 app.on('window-all-closed', () => {
@@ -119,6 +114,14 @@ app.on('activate', () => {
 
 app.whenReady().then(() => {
   createWindow();
+  SequelizeORM.InitORM().then(() => {
+    global.userServices = UserServicesImpl;
+    global.memberservices = MemberServicesImpl;
+    global.employeesServices = EmployeesSerivcesImpl;
+    global.logsServices = LogServicesImpl;
+    global.goodsService = GoodsServicesImpl;
+    win.webContents.send("InitFin");
+  });
 })
 
 

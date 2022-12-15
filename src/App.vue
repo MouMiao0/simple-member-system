@@ -2,7 +2,7 @@
  * @Author: MouMeo 1606958950@qq.com
  * @Date: 2022-11-30 00:02:42
  * @LastEditors: MouMeo 1606958950@qq.com
- * @LastEditTime: 2022-12-14 21:55:34
+ * @LastEditTime: 2022-12-15 09:47:47
  * @FilePath: \electron-vite-vue\src\App.vue
  * @Description: 
  * 
@@ -10,29 +10,22 @@
 -->
 <script setup lang="ts">
 import UserHeaderBarVue from '/src/components/UserHeaderBar.vue';
-import { onMounted, watch } from 'vue';
+import { onMounted } from 'vue';
 import { useRouter } from 'vue-router';
 import { useServiceStore } from './Services';
-import { ElLoading } from 'element-plus';
-
-const loading = ElLoading.service({
-  lock: true,
-  text: '加载中',
-  background: 'rgba(0, 0, 0, 0.7)',
-})
 
 const services = useServiceStore();
 const router = useRouter();
 
-if(services) loading.close();
 
-onMounted(() => {
-  handleBack();
-})
 
 const handleBack = () => {
   router.replace({ path: '/home' })
 }
+
+onMounted(() => {
+  handleBack();
+})
 </script>
 
 <template>
