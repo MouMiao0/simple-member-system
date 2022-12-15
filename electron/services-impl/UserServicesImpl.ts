@@ -1,6 +1,5 @@
 import SequelizeORM from "../db/SequelizeORM";
 import { User } from "./model-bind/User";
-import { ModelCtor, Sequelize } from 'sequelize';
 /*
  * @Author: MouMeo 1606958950@qq.com
  * @Date: 2022-11-30 17:10:40

@@ -1,11 +1,11 @@
-import SequelizeORM, { store } from '../db/SequelizeORM'
+import SequelizeORM from '../db/SequelizeORM'
 import { Employee } from './model-bind/Employee';
 
 /*
  * @Author: MouMeo 1606958950@qq.com
  * @Date: 2022-12-02 12:02:37
  * @LastEditors: MouMeo 1606958950@qq.com
- * @LastEditTime: 2022-12-14 19:29:25
+ * @LastEditTime: 2022-12-15 18:55:32
  * @FilePath: \electron-vite-vue\electron\services-impl\EmployeesSerivcesImpl.ts
  * @Description: 
  * 
