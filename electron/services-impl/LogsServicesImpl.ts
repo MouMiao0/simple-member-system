@@ -1,5 +1,4 @@
-import SequelizeORM, { store } from "../db/SequelizeORM";
-import { Logs } from "./model-bind/Logs";
+import SequelizeORM from "../db/SequelizeORM";
 import { Op } from "sequelize";
 import Util from "../util/Util";
 
@@ -7,7 +6,7 @@ import Util from "../util/Util";
  * @Author: MouMeo 1606958950@qq.com
  * @Date: 2022-12-02 15:19:56
  * @LastEditors: MouMeo 1606958950@qq.com
- * @LastEditTime: 2022-12-11 11:23:04
+ * @LastEditTime: 2022-12-15 18:55:03
  * @FilePath: \electron-vite-vue\electron\services-impl\LogsServicesImpl.ts
  * @Description: 
  * 

@@ -1,12 +1,11 @@
-import { resolve } from "path";
 import { Op } from "sequelize";
-import SequelizeORM, { store } from "../db/SequelizeORM";
+import SequelizeORM from "../db/SequelizeORM";
 import Util from "../util/Util";
 /*
  * @Author: MouMeo 1606958950@qq.com
  * @Date: 2022-12-01 15:04:30
  * @LastEditors: MouMeo 1606958950@qq.com
- * @LastEditTime: 2022-12-11 10:15:07
+ * @LastEditTime: 2022-12-15 18:54:40
  * @FilePath: \electron-vite-vue\electron\services-impl\MemberServicesImpl.ts
  * @Description: 
  * 
