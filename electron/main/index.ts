@@ -120,7 +120,7 @@ app.whenReady().then(() => {
     global.employeesServices = EmployeesSerivcesImpl;
     global.logsServices = LogServicesImpl;
     global.goodsService = GoodsServicesImpl;
-    win.webContents.send("InitFin");
+    win.webContents.send("InitFin",true);
   });
 })
 

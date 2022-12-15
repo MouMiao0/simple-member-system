@@ -2,7 +2,7 @@
  * @Author: MouMeo 1606958950@qq.com
  * @Date: 2022-11-30 00:02:42
  * @LastEditors: MouMeo 1606958950@qq.com
- * @LastEditTime: 2022-12-15 09:58:53
+ * @LastEditTime: 2022-12-15 11:17:45
  * @FilePath: \electron-vite-vue\electron\preload\index.ts
  * @Description: 
  * 
@@ -100,12 +100,15 @@ function useLoading() {
 const { appendLoading, removeLoading } = useLoading()
 domReady().then(appendLoading)
 
-window.onmessage = ev => {
-  ev.data.payload === 'removeLoading' && removeLoading()
-}
+// window.onmessage = ev => {
+//   ev.data.payload === 'removeLoading' && removeLoading()
+// }
 
-ipcRenderer.on('InitFin',()=>{
-  removeLoading();
+ipcRenderer.on('InitFin', (event, flag) => {
+  if (flag == true) {
+    removeLoading();
+    setTimeout(removeLoading, 5000);
+  }
 })
 
 setTimeout(removeLoading, 30000)
