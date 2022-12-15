@@ -1,6 +1,5 @@
 import { Op } from "sequelize";
 import SequelizeORM from "../db/SequelizeORM";
-import Singleton from "../util/Singleton";
 /*
  * @Author: MouMeo 1606958950@qq.com
  * @Date: 2022-12-01 23:57:48

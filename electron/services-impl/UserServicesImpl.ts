@@ -1,12 +1,11 @@
 import SequelizeORM from "../db/SequelizeORM";
 import { User } from "./model-bind/User";
 import { ModelCtor, Sequelize } from 'sequelize';
-import Singleton from "../util/Singleton";
 /*
  * @Author: MouMeo 1606958950@qq.com
  * @Date: 2022-11-30 17:10:40
  * @LastEditors: MouMeo 1606958950@qq.com
- * @LastEditTime: 2022-12-14 15:11:00
+ * @LastEditTime: 2022-12-15 18:36:52
  * @FilePath: \electron-vite-vue\electron\services-impl\UserServicesImpl.ts
  * @Description: 
  * 

@@ -1,7 +1,6 @@
 import { resolve } from "path";
 import { Op } from "sequelize";
 import SequelizeORM, { store } from "../db/SequelizeORM";
-import Singleton from "../util/Singleton";
 import Util from "../util/Util";
 /*
  * @Author: MouMeo 1606958950@qq.com

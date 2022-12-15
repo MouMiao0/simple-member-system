@@ -1,5 +1,4 @@
 import SequelizeORM, { store } from '../db/SequelizeORM'
-import Singleton from '../util/Singleton';
 import { Employee } from './model-bind/Employee';
 
 /*

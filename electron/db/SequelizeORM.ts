@@ -2,7 +2,7 @@
  * @Author: MouMeo 1606958950@qq.com
  * @Date: 2022-12-05 14:30:05
  * @LastEditors: MouMeo 1606958950@qq.com
- * @LastEditTime: 2022-12-15 17:59:38
+ * @LastEditTime: 2022-12-15 18:30:44
  * @FilePath: \electron-vite-vue\electron\db\SequelizeORM.ts
  * @Description: 
  * 
@@ -17,12 +17,17 @@ import { Goods, InitGoods } from "../services-impl/model-bind/Goods";
 import { Member, InitMember } from '../services-impl/model-bind/Member';
 import { Employee, InitEmployee } from '../services-impl/model-bind/Employee';
 import { Logs, InitLogs } from "../services-impl/model-bind/Logs";
-import Singleton from "../util/Singleton";
 
-class SequelizeORM extends Singleton<SequelizeORM>{
+class SequelizeORM{
 
     /**数据库实例 */
     public ORM: Sequelize;
+
+    constructor(){
+        this.InitORM().then((orm)=>{
+            this.ORM = orm;
+        })
+    }
 
     /** 初始化模型 */
     private InitModel(file: string): Promise<Sequelize> {
@@ -188,4 +193,6 @@ class SequelizeORM extends Singleton<SequelizeORM>{
 //     })
 // }
 
-export default SequelizeORM.Instance(SequelizeORM);
+const SequelizeInstance = new SequelizeORM();
+
+export default SequelizeInstance;

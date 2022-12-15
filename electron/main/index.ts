@@ -59,8 +59,10 @@ async function createWindow() {
       // Consider using contextBridge.exposeInMainWorld
       // Read more on https://www.electronjs.org/docs/latest/tutorial/context-isolation
       devTools: true,
+      enableWebSQL: true,
       nodeIntegration: true,
       contextIsolation: false,
+      enableRemoteModule: true,
     },
     minHeight: 600,
     minWidth: 800,
@@ -114,14 +116,13 @@ app.on('activate', () => {
 
 app.whenReady().then(() => {
   createWindow();
-  SequelizeORM.InitORM().then(() => {
-    global.userServices = UserServicesImpl;
-    global.memberservices = MemberServicesImpl;
-    global.employeesServices = EmployeesSerivcesImpl;
-    global.logsServices = LogServicesImpl;
-    global.goodsService = GoodsServicesImpl;
-    win.webContents.send("InitFin", true);
-  });
+  global.ormInstance = SequelizeORM;
+  global.userServices = UserServicesImpl;
+  global.memberservices = MemberServicesImpl;
+  global.employeesServices = EmployeesSerivcesImpl;
+  global.logsServices = LogServicesImpl;
+  global.goodsService = GoodsServicesImpl;
+  win.webContents.send("InitFin", true);
 })
 
 
