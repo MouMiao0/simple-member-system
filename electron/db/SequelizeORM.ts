@@ -2,7 +2,7 @@
  * @Author: MouMeo 1606958950@qq.com
  * @Date: 2022-12-05 14:30:05
  * @LastEditors: MouMeo 1606958950@qq.com
- * @LastEditTime: 2022-12-14 19:46:10
+ * @LastEditTime: 2022-12-15 17:59:38
  * @FilePath: \electron-vite-vue\electron\db\SequelizeORM.ts
  * @Description: 
  * 
@@ -16,7 +16,6 @@ import { User, InitUser } from "../services-impl/model-bind/User";
 import { Goods, InitGoods } from "../services-impl/model-bind/Goods";
 import { Member, InitMember } from '../services-impl/model-bind/Member';
 import { Employee, InitEmployee } from '../services-impl/model-bind/Employee';
-import Store = require('electron-store');
 import { Logs, InitLogs } from "../services-impl/model-bind/Logs";
 import Singleton from "../util/Singleton";
 

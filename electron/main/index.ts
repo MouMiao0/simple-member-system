@@ -58,7 +58,7 @@ async function createWindow() {
       // Warning: Enable nodeIntegration and disable contextIsolation is not secure in production
       // Consider using contextBridge.exposeInMainWorld
       // Read more on https://www.electronjs.org/docs/latest/tutorial/context-isolation
-      devTools:true,
+      devTools: true,
       nodeIntegration: true,
       contextIsolation: false,
     },
@@ -66,7 +66,7 @@ async function createWindow() {
     minWidth: 800,
     // frame: false//关闭原生导航栏
   })
-  
+
   remote.enable(win.webContents);
 
   if (process.env.VITE_DEV_SERVER_URL) { // electron-vite-vue#298
@@ -75,7 +75,7 @@ async function createWindow() {
     win.webContents.openDevTools();
   } else {
     win.loadFile(indexHtml)
-    Menu.setApplicationMenu(null);
+    // Menu.setApplicationMenu(null);
   }
 
   // Test actively push message to the Electron-Renderer
@@ -120,7 +120,7 @@ app.whenReady().then(() => {
     global.employeesServices = EmployeesSerivcesImpl;
     global.logsServices = LogServicesImpl;
     global.goodsService = GoodsServicesImpl;
-    win.webContents.send("InitFin",true);
+    win.webContents.send("InitFin", true);
   });
 })
 
