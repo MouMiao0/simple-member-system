@@ -11,8 +11,6 @@
     "build": "vue-tsc --noEmit && vite build && electron-builder",
     "postBuild": "electron-builder install-app-deps ",
     "electron:rebuild-Sqlite3": "electron-rebuild -f -w sqlite3",
-    "electron:rebuild-Sequelize": "electron-rebuild -f -w sequelize",
-    "electron:rebuild-remote": "electron-rebuild -f -w @electron/remote",
     "postinstall": "electron-builder install-app-deps"
   },
   "engines": {
@@ -38,7 +36,7 @@
     "@types/node": "^18.11.10",
     "@types/validator": "^13.7.10",
     "@vitejs/plugin-vue": "^3.1.2",
-    "electron": "^21.1.0",
+    "electron": "^22.0.0",
     "electron-debug": "^3.2.0",
     "electron-devtools-installer": "^3.2.0",
     "electron-rebuild": "^3.2.9",
