@@ -2,7 +2,7 @@
  * @Author: MouMeo 1606958950@qq.com
  * @Date: 2022-11-30 00:02:42
  * @LastEditors: MouMeo 1606958950@qq.com
- * @LastEditTime: 2022-12-05 04:39:28
+ * @LastEditTime: 2022-12-15 18:57:21
  * @FilePath: \electron-vite-vue\vite.config.ts
  * @Description: 
  * 
@@ -24,13 +24,6 @@ const isBuild = process.argv.slice(2).includes('build')
 // https://vitejs.dev/config/
 export default defineConfig({
   plugins: [
-    // Use Node.js API in the Renderer-process
-    topLevelAwait({
-      // The export name of top-level await promise for each chunk module
-      promiseExportName: '__tla',
-      // The function to generate import names of top-level await promise in each chunk module
-      promiseImportName: i => `__tla_${i}`
-    }),
     vue(),
     electron([
       {
