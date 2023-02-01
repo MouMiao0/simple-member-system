@@ -32,7 +32,7 @@
   "devDependencies": {
     "electron-builder": "^23.6.0",
     "@electron/rebuild": "^3.2.10",
-    "@types/fs-extra": "^9.0.13",
+    "@types/fs-extra": "^11.0.1",
     "@types/node": "^18.11.10",
     "@types/validator": "^13.7.10",
     "@vitejs/plugin-vue": "^3.1.2",
